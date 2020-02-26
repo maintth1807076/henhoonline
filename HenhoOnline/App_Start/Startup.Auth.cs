@@ -54,15 +54,15 @@ namespace HenhoOnline
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+                appId: "2583080275134737",
+                appSecret: "8b27bc8024e0936e8af76494cd17a04b");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "511956939122-tp1dcmisa61jsheolmkr7t69r32jaajg.apps.googleusercontent.com",
+                ClientSecret = "J6Y5wvpStvKmow6maSUXVNoo"
+            });
         }
     }
 }

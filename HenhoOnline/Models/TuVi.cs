@@ -8,8 +8,8 @@ namespace HenhoOnline.Models
     public class TuVi
     {
         public int Id { get; set; }
-        public DateTime StartDate { get; set; }
-        public DateTime EndDate { get; set; }
+        public string StartDate { get; set; }
+        public string EndDate { get; set; }
         public string Tuoi { get; set; }
         public string Menh { get; set; }
         public string TuoiHop { get; set; }

@@ -196,6 +196,22 @@
     <Compile Include="Migrations\202002261429405_ChangeAppUser1.Designer.cs">
       <DependentUpon>202002261429405_ChangeAppUser1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202002261624027_SeedDemoTuVi.cs" />
+    <Compile Include="Migrations\202002261624027_SeedDemoTuVi.Designer.cs">
+      <DependentUpon>202002261624027_SeedDemoTuVi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002261639303_SeedDemoUser.cs" />
+    <Compile Include="Migrations\202002261639303_SeedDemoUser.Designer.cs">
+      <DependentUpon>202002261639303_SeedDemoUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002261648520_SeedDemoUser1.cs" />
+    <Compile Include="Migrations\202002261648520_SeedDemoUser1.Designer.cs">
+      <DependentUpon>202002261648520_SeedDemoUser1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002261650276_SeedDemoAgain.cs" />
+    <Compile Include="Migrations\202002261650276_SeedDemoAgain.Designer.cs">
+      <DependentUpon>202002261650276_SeedDemoAgain.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -287,6 +303,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002261429405_ChangeAppUser1.resx">
       <DependentUpon>202002261429405_ChangeAppUser1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002261624027_SeedDemoTuVi.resx">
+      <DependentUpon>202002261624027_SeedDemoTuVi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002261639303_SeedDemoUser.resx">
+      <DependentUpon>202002261639303_SeedDemoUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002261648520_SeedDemoUser1.resx">
+      <DependentUpon>202002261648520_SeedDemoUser1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002261650276_SeedDemoAgain.resx">
+      <DependentUpon>202002261650276_SeedDemoAgain.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

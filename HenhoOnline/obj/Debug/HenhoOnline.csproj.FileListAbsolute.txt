@@ -84,7 +84,6 @@ F:\baitapc#\HenhoOnline\HenhoOnline\bin\System.Web.Razor.xml
 F:\baitapc#\HenhoOnline\HenhoOnline\bin\System.Web.WebPages.xml
 F:\baitapc#\HenhoOnline\HenhoOnline\bin\System.Web.WebPages.Deployment.xml
 F:\baitapc#\HenhoOnline\HenhoOnline\bin\System.Web.WebPages.Razor.xml
-F:\baitapc#\HenhoOnline\HenhoOnline\bin\Newtonsoft.Json.xml
 F:\baitapc#\HenhoOnline\HenhoOnline\bin\Antlr3.Runtime.pdb
 F:\baitapc#\HenhoOnline\HenhoOnline\bin\EntityFramework.xml
 F:\baitapc#\HenhoOnline\HenhoOnline\bin\EntityFramework.SqlServer.xml
@@ -105,3 +104,14 @@ F:\baitapc#\HenhoOnline\HenhoOnline\obj\Debug\HenhoOnline.csprojAssemblyReferenc
 F:\baitapc#\HenhoOnline\HenhoOnline\obj\Debug\HenhoOnline.csproj.CopyComplete
 F:\baitapc#\HenhoOnline\HenhoOnline\obj\Debug\HenhoOnline.dll
 F:\baitapc#\HenhoOnline\HenhoOnline\obj\Debug\HenhoOnline.pdb
+F:\baitapc#\HenhoOnline\HenhoOnline\obj\Debug\HenhoOnline.Migrations.InitialCreate.resources
+F:\baitapc#\HenhoOnline\HenhoOnline\obj\Debug\HenhoOnline.csproj.GenerateResource.cache
+F:\baitapc#\HenhoOnline\HenhoOnline\obj\Debug\HenhoOnline.Migrations.ChangeAppUser.resources
+F:\baitapc#\HenhoOnline\HenhoOnline\bin\CloudinaryDotNet.dll
+F:\baitapc#\HenhoOnline\HenhoOnline\bin\System.Text.Encodings.Web.dll
+F:\baitapc#\HenhoOnline\HenhoOnline\bin\CloudinaryDotNet.xml
+F:\baitapc#\HenhoOnline\HenhoOnline\obj\Debug\HenhoOnline.Migrations.ChangeAppUser1.resources
+F:\baitapc#\HenhoOnline\HenhoOnline\obj\Debug\HenhoOnline.Migrations.SeedDemoTuVi.resources
+F:\baitapc#\HenhoOnline\HenhoOnline\obj\Debug\HenhoOnline.Migrations.SeedDemoUser.resources
+F:\baitapc#\HenhoOnline\HenhoOnline\obj\Debug\HenhoOnline.Migrations.SeedDemoUser1.resources
+F:\baitapc#\HenhoOnline\HenhoOnline\obj\Debug\HenhoOnline.Migrations.SeedDemoAgain.resources

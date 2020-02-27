@@ -1,0 +1,7 @@
+﻿bin/
+obj/
+App_Data/*.mdf
+App_Data/*.ldf
+packages/
+*.sln
+*.csproj.user

@@ -1,11 +1,9 @@
-<<<<<<< HEAD
-﻿bin/
+bin/
 obj/
 App_Data/*.mdf
 App_Data/*.ldf
+.vs/
 packages/
 *.sln
 *.csproj.user
-=======
-﻿
->>>>>>> b30f51eca3bf17a3eafbc11ce71316736440998c
+*.csproj

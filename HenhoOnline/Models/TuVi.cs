@@ -14,5 +14,6 @@ namespace HenhoOnline.Models
         public string Menh { get; set; }
         public string TuoiHop { get; set; }
         public int Gender { get; set; }
+        public string TuViHop { get; set; }
     }
 }

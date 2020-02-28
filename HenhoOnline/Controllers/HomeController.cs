@@ -1,16 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using CloudinaryDotNet;
 using CloudinaryDotNet.Actions;
+using HenhoOnline.Models;
+using WebGrease.Css.Ast.Selectors;
 
 namespace HenhoOnline.Controllers
 {
     public class HomeController : Controller
     {
+        private ApplicationDbContext dbContext = new ApplicationDbContext();
         public ActionResult Index()
         {
             return View();
@@ -43,10 +49,26 @@ namespace HenhoOnline.Controllers
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult Contact(string birthDay, int? gender)
         {
-            ViewBag.Message = "Your contact page.";
+            ////para input IdUser. -> user tuong ung , if user nulll -> not found
+            //var currentUserId = "A001"; // lay tu session
+            //var currentUser = dbContext.Users.Find(currentUserId);
+            //if (currentUser == null) return HttpNotFound();
+            //List<ApplicationUser> danhsachHopTuVio = new List<ApplicationUser>();
+            //if (currentUser.TuviId != null)
+            //{
+            //   var currentTuvi =  dbContext.TuVis.Find(currentUser.TuviId);
+            //   var tuviHopIds = currentTuvi.TuViHop.Split(',');
+            //   foreach (var hopId in tuviHopIds)
+            //   {
+            //       var hopIdInt = Int32.Parse(hopId);
+            //       var list = dbContext.Users.Where(u => u.TuviId == hopIdInt).ToList();
+            //       danhsachHopTuVio.AddRange(list);
+            //   }
+            //}
 
+            
             return View();
         }
     }

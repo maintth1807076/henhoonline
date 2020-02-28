@@ -57,6 +57,15 @@
     <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.3\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Core, Version=2.4.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.2.4.1\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Owin, Version=1.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Owin.1.2.2\lib\net45\Microsoft.AspNet.SignalR.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.SystemWeb, Version=2.4.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.SystemWeb.2.4.1\lib\net45\Microsoft.AspNet.SignalR.SystemWeb.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Owin, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Owin.4.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
@@ -84,6 +93,7 @@
       <Private>True</Private>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Security" />
     <Reference Include="System.Text.Encodings.Web, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\CloudinaryDotNet.1.10.0\lib\net45\System.Text.Encodings.Web.dll</HintPath>
     </Reference>
@@ -184,39 +194,24 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202001280633083_InitialCreate.cs" />
-    <Compile Include="Migrations\202001280633083_InitialCreate.Designer.cs">
-      <DependentUpon>202001280633083_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\202002280224142_InitData.cs" />
+    <Compile Include="Migrations\202002280224142_InitData.Designer.cs">
+      <DependentUpon>202002280224142_InitData.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202002260331498_ChangeAppUser.cs" />
-    <Compile Include="Migrations\202002260331498_ChangeAppUser.Designer.cs">
-      <DependentUpon>202002260331498_ChangeAppUser.cs</DependentUpon>
+    <Compile Include="Migrations\202002280424331_ChangeTuVi.cs" />
+    <Compile Include="Migrations\202002280424331_ChangeTuVi.Designer.cs">
+      <DependentUpon>202002280424331_ChangeTuVi.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202002261429405_ChangeAppUser1.cs" />
-    <Compile Include="Migrations\202002261429405_ChangeAppUser1.Designer.cs">
-      <DependentUpon>202002261429405_ChangeAppUser1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202002261624027_SeedDemoTuVi.cs" />
-    <Compile Include="Migrations\202002261624027_SeedDemoTuVi.Designer.cs">
-      <DependentUpon>202002261624027_SeedDemoTuVi.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202002261639303_SeedDemoUser.cs" />
-    <Compile Include="Migrations\202002261639303_SeedDemoUser.Designer.cs">
-      <DependentUpon>202002261639303_SeedDemoUser.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202002261648520_SeedDemoUser1.cs" />
-    <Compile Include="Migrations\202002261648520_SeedDemoUser1.Designer.cs">
-      <DependentUpon>202002261648520_SeedDemoUser1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202002261650276_SeedDemoAgain.cs" />
-    <Compile Include="Migrations\202002261650276_SeedDemoAgain.Designer.cs">
-      <DependentUpon>202002261650276_SeedDemoAgain.cs</DependentUpon>
+    <Compile Include="Migrations\202002280817238_CreateHoroscope.cs" />
+    <Compile Include="Migrations\202002280817238_CreateHoroscope.Designer.cs">
+      <DependentUpon>202002280817238_CreateHoroscope.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ChatHub.cs" />
+    <Compile Include="Models\Horoscope.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\TuVi.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -238,6 +233,8 @@
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.signalR-2.4.1.js" />
+    <Content Include="Scripts\jquery.signalR-2.4.1.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -295,26 +292,14 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202001280633083_InitialCreate.resx">
-      <DependentUpon>202001280633083_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202002280224142_InitData.resx">
+      <DependentUpon>202002280224142_InitData.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202002260331498_ChangeAppUser.resx">
-      <DependentUpon>202002260331498_ChangeAppUser.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202002280424331_ChangeTuVi.resx">
+      <DependentUpon>202002280424331_ChangeTuVi.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202002261429405_ChangeAppUser1.resx">
-      <DependentUpon>202002261429405_ChangeAppUser1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202002261624027_SeedDemoTuVi.resx">
-      <DependentUpon>202002261624027_SeedDemoTuVi.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202002261639303_SeedDemoUser.resx">
-      <DependentUpon>202002261639303_SeedDemoUser.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202002261648520_SeedDemoUser1.resx">
-      <DependentUpon>202002261648520_SeedDemoUser1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202002261650276_SeedDemoAgain.resx">
-      <DependentUpon>202002261650276_SeedDemoAgain.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202002280817238_CreateHoroscope.resx">
+      <DependentUpon>202002280817238_CreateHoroscope.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

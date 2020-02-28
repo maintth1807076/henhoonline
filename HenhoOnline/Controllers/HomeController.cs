@@ -10,6 +10,7 @@ using System.Web.Mvc;
 using CloudinaryDotNet;
 using CloudinaryDotNet.Actions;
 using HenhoOnline.Models;
+using Microsoft.AspNet.Identity;
 using WebGrease.Css.Ast.Selectors;
 
 namespace HenhoOnline.Controllers
@@ -49,27 +50,15 @@ namespace HenhoOnline.Controllers
             return View();
         }
 
-        public ActionResult Contact(string birthDay, int? gender)
+        public ActionResult Contact()
         {
-            ////para input IdUser. -> user tuong ung , if user nulll -> not found
-            //var currentUserId = "A001"; // lay tu session
-            //var currentUser = dbContext.Users.Find(currentUserId);
-            //if (currentUser == null) return HttpNotFound();
-            //List<ApplicationUser> danhsachHopTuVio = new List<ApplicationUser>();
-            //if (currentUser.TuviId != null)
-            //{
-            //   var currentTuvi =  dbContext.TuVis.Find(currentUser.TuviId);
-            //   var tuviHopIds = currentTuvi.TuViHop.Split(',');
-            //   foreach (var hopId in tuviHopIds)
-            //   {
-            //       var hopIdInt = Int32.Parse(hopId);
-            //       var list = dbContext.Users.Where(u => u.TuviId == hopIdInt).ToList();
-            //       danhsachHopTuVio.AddRange(list);
-            //   }
-            //}
+            Debug.WriteLine(User.Identity.GetUserId());
+            var currentUser = dbContext.Users.Find(User.Identity.GetUserId());
+            if (currentUser == null) return HttpNotFound();
+            var listUser = currentUser.GetListUserHoroscopeMatch(currentUser);
 
-            
-            return View();
+
+            return View(listUser);
         }
     }
 }

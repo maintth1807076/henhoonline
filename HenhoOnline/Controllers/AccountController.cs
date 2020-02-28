@@ -153,6 +153,8 @@ namespace HenhoOnline.Controllers
             if (ModelState.IsValid)
             {
                 var user = new ApplicationUser { UserName = model.Username, Email = model.Email, FullName = model.FullName, BirthDay = model.BirthDay, Address = model.Address, Avatar = model.Avatar, Character = model.Character, Gender = model.Gender };
+                Debug.WriteLine("horo Id: " + user.GetHoroscope(user));
+                if (user.GetHoroscope(user) != null) { user.HoroscopeId = user.GetHoroscope(user); }
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -370,6 +372,7 @@ namespace HenhoOnline.Controllers
                     return View("ExternalLoginFailure");
                 }
                 var user = new ApplicationUser {UserName = model.Email, Email = model.Email, FullName = model.FullName, BirthDay = model.BirthDay, Address = model.Address, Avatar = model.Avatar, Character = model.Character, Gender = model.Gender};
+                if (user.GetHoroscope(user) != null) { user.HoroscopeId = user.GetHoroscope(user); }
                 var result = await UserManager.CreateAsync(user);
                 if (result.Succeeded)
                 {

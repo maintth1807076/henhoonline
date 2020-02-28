@@ -111,6 +111,10 @@ F:\baitapc#\HenhoOnline\HenhoOnline\bin\Microsoft.Owin.Security.Twitter.xml
 F:\baitapc#\HenhoOnline\HenhoOnline\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 F:\baitapc#\HenhoOnline\HenhoOnline\bin\Microsoft.Owin.Security.OAuth.xml
 F:\baitapc#\HenhoOnline\HenhoOnline\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+F:\baitapc#\HenhoOnline\HenhoOnline\obj\Debug\HenhoOnline.Migrations.InitData.resources
+F:\baitapc#\HenhoOnline\HenhoOnline\obj\Debug\HenhoOnline.Migrations.ChangeTuVi.resources
+F:\baitapc#\HenhoOnline\HenhoOnline\obj\Debug\HenhoOnline.csproj.GenerateResource.cache
 F:\baitapc#\HenhoOnline\HenhoOnline\obj\Debug\HenhoOnline.csproj.CopyComplete
 F:\baitapc#\HenhoOnline\HenhoOnline\obj\Debug\HenhoOnline.dll
 F:\baitapc#\HenhoOnline\HenhoOnline\obj\Debug\HenhoOnline.pdb
+F:\baitapc#\HenhoOnline\HenhoOnline\obj\Debug\HenhoOnline.Migrations.CreateHoroscope.resources

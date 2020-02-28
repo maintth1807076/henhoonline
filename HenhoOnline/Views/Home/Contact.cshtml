@@ -1,7 +1,14 @@
-﻿@{
+﻿@model IEnumerable<HenhoOnline.Models.ApplicationUser>
+@{
     ViewBag.Title = "Contact";
 }
 <h2>@ViewBag.Title.</h2>
 <h3>@ViewBag.Message</h3>
-
-
+<p>@User.Identity.Name</p>
+<p>Danh sach hop</p>
+<ul>
+    @foreach (var m in Model)
+    {
+        <li>@m.HoroscopeId - @m.FullName</li>
+    }
+</ul>

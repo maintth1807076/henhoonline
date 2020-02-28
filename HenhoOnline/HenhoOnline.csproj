@@ -206,6 +206,10 @@
     <Compile Include="Migrations\202002280817238_CreateHoroscope.Designer.cs">
       <DependentUpon>202002280817238_CreateHoroscope.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202002280934487_ChangeUser.cs" />
+    <Compile Include="Migrations\202002280934487_ChangeUser.Designer.cs">
+      <DependentUpon>202002280934487_ChangeUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ChatHub.cs" />
@@ -300,6 +304,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002280817238_CreateHoroscope.resx">
       <DependentUpon>202002280817238_CreateHoroscope.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002280934487_ChangeUser.resx">
+      <DependentUpon>202002280934487_ChangeUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

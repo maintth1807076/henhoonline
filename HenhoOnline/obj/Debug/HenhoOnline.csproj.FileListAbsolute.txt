@@ -118,3 +118,5 @@ F:\baitapc#\HenhoOnline\HenhoOnline\obj\Debug\HenhoOnline.csproj.CopyComplete
 F:\baitapc#\HenhoOnline\HenhoOnline\obj\Debug\HenhoOnline.dll
 F:\baitapc#\HenhoOnline\HenhoOnline\obj\Debug\HenhoOnline.pdb
 F:\baitapc#\HenhoOnline\HenhoOnline\obj\Debug\HenhoOnline.Migrations.CreateHoroscope.resources
+F:\baitapc#\HenhoOnline\HenhoOnline\obj\Debug\HenhoOnline.Migrations.ChangeUser.resources
+F:\baitapc#\HenhoOnline\HenhoOnline\obj\Debug\HenhoOnline.csprojAssemblyReference.cache

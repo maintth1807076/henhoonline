@@ -1,4 +1,7 @@
-﻿using HenhoOnline.Models;
+﻿using System.Collections.Generic;
+using HenhoOnline.Models;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace HenhoOnline.Migrations
 {
@@ -18,55 +21,68 @@ namespace HenhoOnline.Migrations
 
         protected override void Seed(HenhoOnline.Models.ApplicationDbContext context)
         {
+
             context.Database.ExecuteSqlCommand("DBCC CHECKIDENT('dbo.Horoscopes', RESEED, 0)");
             context.Horoscopes.AddOrUpdate(x => x.Id,
-                //new TuVi() { Id = 1, StartDate = "27/01/1990", EndDate = "14/02/1991", Tuoi = "Canh Ngọ", Menh = "Thủy", TuoiHop = "Tân Mùi, Giáp Tuất, Đinh Sửu, Mậu Thìn", TuViHop = "8,9" , Gender = 1 },
-                //new TuVi() { Id = 2, StartDate = "15/02/1991", EndDate = "03/02/1992", Tuoi = "Tận Mùi", Menh = "Hỏa", TuoiHop = "Quý Dậu, Ất Hợi, Bính Tý, Kỷ Mão, Kỷ Tỵ, Canh Ngọ", TuViHop = "1,4,7" , Gender = 1 },
-                new Horoscope() { Id = 1, StartDate = DateTime.Parse("1992/02/04"), EndDate = DateTime.Parse("1993/01/22"), NegativeAge = "Nhâm Thân", FiveElements = "Thổ", HoroscopeMatch = "2", Gender = 1 },
-                //new TuVi() { Id = 4, StartDate = "23/01/1993", EndDate = "09/02/1994", Tuoi = "Quý Dậu", Menh = "Kim", TuoiHop = "Quý Dậu, Ất Hợi, Đinh Sửu, Kỷ Mão, Tân Tỵ", TuViHop = "4,6,10" , Gender = 1 },
-                //new TuVi() { Id = 5, StartDate = "10/02/1994", EndDate = "30/01/1995", Tuoi = "Giáp Tuất", Menh = "Kim", TuoiHop = "Ất Hợi, Bính Tý, Mậu Dần, Tân Tỵ, Nhâm Ngọ, Nhâm Thân", TuViHop = "7,9,13" , Gender = 1 },
-                //new TuVi() { Id = 6, StartDate = "01/02/1995", EndDate = "18/02/1996", Tuoi = "Ất Hợi", Menh = "Thổ", TuoiHop = "Đinh Sửu, Canh Thìn, Quý Mùi, Giáp Tuất", TuViHop = "8,5" , Gender = 1 },
-                //new TuVi() { Id = 7, StartDate = "19/02/1996", EndDate = "06/02/1997", Tuoi = "Bính Tý", Menh = "Mộc", TuoiHop = "Bính Tý, Tân Tỵ, Nhâm Ngọ, Ất Dậu", TuViHop = "7,16" , Gender = 1 },
-                //new TuVi() { Id = 8, StartDate = "07/02/1997", EndDate = "27/01/1998", Tuoi = "Đinh Sửu", Menh = "Mộc", TuoiHop = "Canh Dần, Quý Tỵ, Giáp Ngọ, Bính Thân, Mậu Tý, Đinh Hợi", TuViHop = "18" , Gender = 1 },
-                //new TuVi() { Id = 9, StartDate = "28/01/1998", EndDate = "15/02/1999", Tuoi = "Mậu Dần", Menh = "Thổ", TuoiHop = "Nhâm Thìn, Ất Mùi, Mật Tuất, Kỷ Sửu", TuViHop = "20" , Gender = 1 },
-                //new TuVi() { Id = 10, StartDate = "16/02/1999", EndDate = "04/02/2000", Tuoi = "Kỷ Mão", Menh = "Thủy", TuoiHop = "Tân Tỵ, Nhâm Ngọ, Giáp Thân, Đinh Hợi, Mậu Dần", TuViHop = "9,12,13,20" , Gender = 1 },
-                //new TuVi() { Id = 11, StartDate = "05/02/2000", EndDate = "23/01/2001", Tuoi = "Canh Thìn", Menh = "Hỏa", TuoiHop = "Canh Thìn, Bính Tuất, Kỷ Sửu, Đinh Sửu", TuViHop = "11" ,Gender = 1 },
-                //new TuVi() { Id = 12, StartDate = "24/01/2001", EndDate = "11/02/2002", Tuoi = "Tân Tỵ", Menh = "Thổ", TuoiHop = "Tân Tỵ, Nhâm Ngọ, Ất Dậu, Đinh Hợi, Mậu Tý, Kỷ Mão", TuViHop = "12,18,19" , Gender = 1 },
-                //new TuVi() { Id = 13, StartDate = "12/02/2002", EndDate = "31/01/2003", Tuoi = "Nhâm Ngọ", Menh = "Kim", TuoiHop = "Giáp Thân, Bính Tuất, Canh Dần, Canh Thìn", TuViHop = "17" , Gender = 1 },
-                //new TuVi() { Id = 14, StartDate = "14/02/2003", EndDate = "21/01/2004", Tuoi = "Quý Mùi", Menh = "Kim", TuoiHop = "Quý Mùi, Ất Mùi, Đinh Hợi, Kỷ Sửu, Tân Mão, Tân Tỵ, Kỷ Mão", TuViHop = "14" , Gender = 1 },
-                //new TuVi() { Id = 15, StartDate = "22/01/2004", EndDate = "08/02/2005", Tuoi = "Giáp Thân", Menh = "Thổ", TuoiHop = "Nhâm Tuất, Ất Sửu, Mậu Thìn, Kỷ Mùi", TuViHop = "16" , Gender = 1 },
-                //new TuVi() { Id = 16, StartDate = "09/02/2005", EndDate = "28/01/2006", Tuoi = "Ất Dậu", Menh = "Mộc", TuoiHop = "Bính Tuất, Kỷ Sửu, Nhâm Thìn, Quý Mùi", Gender = 1 },
-                //new TuVi() { Id = 17, StartDate = "29/01/2006", EndDate = "16/02/2007", Tuoi = "Bính Tuất", Menh = "Thổ", TuoiHop = "Đinh Hợi, Mậu Tý, Tân Mão, Quý Tỵ, Giáp Ngọ, Ất Dậu", Gender = 1 },
-                //new TuVi() { Id = 18, StartDate = "17/02/2007", EndDate = "06/02/2008", Tuoi = "Đinh Hợi", Menh = "Thủy", TuoiHop = "Canh Dần, Nhâm Thìn, Bính Tuất", Gender = 1 },
-                //new TuVi() { Id = 19, StartDate = "07/02/2008", EndDate = "25/01/2009", Tuoi = "Mậu Tý", Menh = "Hỏa", TuoiHop = "Kỷ Sửu, Đinh Dậu, Đinh Hợi, Ất Mùi", Gender = 1 },
-                //new TuVi() { Id = 20, StartDate = "26/01/2009", EndDate = "13/02/2010", Tuoi = "Kỷ Sửu", Menh = "Thổ", TuoiHop = "Canh Dần, Quý Tỵ, Giáp Ngọ, Bính Thân, Mậu Tý, Đinh Hợi", Gender = 1 },
-                //new TuVi() { Id = 21, StartDate = "27/01/1990", EndDate = "14/02/1991", Tuoi = "Canh Ngọ", Menh = "Thổ", TuoiHop = "Tân Mùi, Giáp Tuất, Đinh Sửu, Mậu Thìn", TuViHop = "5" , Gender = 0 },
-                //new TuVi() { Id = 22, StartDate = "15/02/1991", EndDate = "03/02/1992", Tuoi = "Tận Mùi", Menh = "Kim", TuoiHop = "Quý Dậu, Ất Hợi, Bính Tý, Kỷ Mão, Canh Ngọ, Kỷ Tỵ", TuViHop = "4" , Gender = 0 },
-                //new TuVi() { Id = 23, StartDate = "03/02/1992", EndDate = "22/01/1993", Tuoi = "Nhâm Thân", Menh = "Kim", TuoiHop = "Nhâm Thân, Giáp Tuất, Mậu Dần, Canh Thìn", TuViHop = "3" , Gender = 0 },
-                //new TuVi() { Id = 24, StartDate = "23/01/1993", EndDate = "09/02/1994", Tuoi = "Quý Dậu", Menh = "Thổ", TuoiHop = "Quý Dậu, Ất Hợi, Đinh Sửu, Kỷ Mão, Tân Kỵ và Tân Mùi", TuViHop = "4,6" , Gender = 0 },
-                //new TuVi() { Id = 25, StartDate = "10/02/1994", EndDate = "30/01/1995", Tuoi = "Giáp Tuất", Menh = "Hỏa", TuoiHop = "Ất Hợi, Bính Tý, Mậu Dần, Tân Tỵ, Nhâm Ngọ, Nhâm Thân", TuViHop = "3,6" , Gender = 0 },
-                //new TuVi() { Id = 26, StartDate = "01/02/1995", EndDate = "18/02/1996", Tuoi = "Ất Hợi", Menh = "Thủy", TuoiHop = "Đinh Sửu, Canh Thìn, Quý Mùi, Giáp Tuất", TuViHop = "8" ,Gender = 0 },
-                //new TuVi() { Id = 27, StartDate = "19/02/1996", EndDate = "06/02/1997", Tuoi = "Bính Tý", Menh = "Thổ", TuoiHop = "Bính Tý , Tân Tỵ, Nhâm Ngọ, Ất Dậu, Ất Hợi, Quý Dậu", TuViHop = "4,7" , Gender = 0 },
-                //new TuVi() { Id = 28, StartDate = "07/02/1997", EndDate = "27/01/1998", Tuoi = "Đinh Sửu", Menh = "Mộc", TuoiHop = "Mậu Dần, Canh Thìn, Giáp Thân", TuViHop = "9" , Gender = 0 },
-                new Horoscope() { Id = 2, StartDate = DateTime.Parse("1998/01/28"), EndDate = DateTime.Parse("1999/02/15"), NegativeAge = "Mậu Dần", FiveElements = "Mộc", HoroscopeMatch = "6", Gender = 0 }
-                //new TuVi() { Id = 30, StartDate = "16/02/1999", EndDate = "04/02/2000", Tuoi = "Kỷ Mão", Menh = "Thổ", TuoiHop = "Tân Tỵ, Nhâm Ngọ, Giáp Thân, Đinh Hợi, Mậu Dần", TuViHop = "12" , Gender = 0 },
-                //new TuVi() { Id = 31, StartDate = "05/02/2000", EndDate = "23/01/2001", Tuoi = "Canh Thìn", Menh = "Kim", TuoiHop = "Canh Thìn, Bính Tuất, Kỷ Sửu, Đinh Sửu", TuViHop = "8" , Gender = 0 },
-                //new TuVi() { Id = 32, StartDate = "24/01/2001", EndDate = "11/02/2002", Tuoi = "Tân Tỵ", Menh = "Kim", TuoiHop = "Tân Tỵ, Nhâm Ngọ, Ất Dậu, Đinh Hợi, Mậu Tý, Kỷ Mão", TuViHop = "10,12,13" , Gender = 0 },
-                //new TuVi() { Id = 33, StartDate = "12/02/2002", EndDate = "31/01/2003", Tuoi = "Nhâm Ngọ", Menh = "Hỏa", TuoiHop = "Giáp Thân, Bính Tuất, Canh Dần, Canh Thìn", TuViHop = "11", Gender = 0 },
-                //new TuVi() { Id = 34, StartDate = "14/02/2003", EndDate = "21/01/2004", Tuoi = "Quý Mùi", Menh = "Thủy", TuoiHop = "Quý Mùi, Ất Dậu, Đinh Hợi, Kỷ Sửu, Tân Mão, Tân Tỵ, Kỷ Mão", TuViHop = "10" , Gender = 0 },
-                //new TuVi() { Id = 35, StartDate = "22/01/2004", EndDate = "08/02/2005", Tuoi = "Giáp Thân", Menh = "Thổ", TuoiHop = "Giáp Thân, Mậu Tý, Canh Dần, Quý Tỵ, Nhâm Ngọ, Tân Tỵ", TuViHop = "13" , Gender = 0 },
-                //new TuVi() { Id = 36, StartDate = "09/02/2005", EndDate = "28/01/2006", Tuoi = "Ất Dậu", Menh = "Mộc", TuoiHop = "Bính Tuất, Kỷ Sửu, Nhâm Thìn và Quý Mùi", Gender = 0 },
-                //new TuVi() { Id = 37, StartDate = "29/01/2006", EndDate = "16/02/2007", Tuoi = "Bính Tuất", Menh = "Mộc", TuoiHop = "Đinh Hợi, Mậu Tý, Tân Mão, Quý Tỵ, Giáp Ngọ, Ất Dậu", Gender = 0 },
-                //new TuVi() { Id = 38, StartDate = "17/02/2007", EndDate = "06/02/2008", Tuoi = "Đinh Hợi", Menh = "Thổ", TuoiHop = "Canh Dần, Nhâm Thìn, Bính Tuất", Gender = 0 },
-                //new TuVi() { Id = 39, StartDate = "07/02/2008", EndDate = "25/01/2009", Tuoi = "Mậu Tý", Menh = "Kim", TuoiHop = "Kỷ Sửu, Quí Tỵ, Ất Mùi, Đinh Dậu, Đinh Hợi, Ất Dậu", Gender = 0 },
-                //new TuVi() { Id = 40, StartDate = "26/01/2009", EndDate = "13/02/2010", Tuoi = "Kỷ Sửu", Menh = "Kim", TuoiHop = "Canh Dần, Quý Tỵ, Giáp Ngọ, Bính Thân, Mậu Tý, Đinh Hợi", Gender = 0 }
-            );
+                new Horoscope() { Id = 1, StartDate = DateTime.Parse("1990/01/27"), EndDate = DateTime.Parse("1991/02/14"), NegativeAge = "Canh Ngọ", FiveElements = "Thủy", HoroscopeMatch = "28,29", Gender = 1 },
+                new Horoscope() { Id = 2, StartDate = DateTime.Parse("1991/02/15"), EndDate = DateTime.Parse("1992/02/02"), NegativeAge = "Tận Mùi", FiveElements = "Hỏa", HoroscopeMatch = "21,24,27", Gender = 1 },
+                new Horoscope() { Id = 3, StartDate = DateTime.Parse("1992/02/04"), EndDate = DateTime.Parse("1993/01/22"), NegativeAge = "Nhâm Thân",FiveElements = "Thổ", HoroscopeMatch = "37,32", Gender = 1 },
+                new Horoscope() { Id = 4, StartDate = DateTime.Parse("1993/01/23"), EndDate = DateTime.Parse("1994/02/09"), NegativeAge = "Quý Dậu", FiveElements = "Kim", HoroscopeMatch = "24,26,30", Gender = 1 },
+                new Horoscope() { Id = 5, StartDate = DateTime.Parse("1994/02/10"), EndDate = DateTime.Parse("1995/01/30"), NegativeAge = "Giáp Tuất", FiveElements = "Kim", HoroscopeMatch = "27,29,33", Gender = 1 },
+                new Horoscope() { Id = 6, StartDate = DateTime.Parse("1995/02/01"), EndDate = DateTime.Parse("1996/02/18"), NegativeAge = "Ất Hợi", FiveElements = "Thổ", HoroscopeMatch = "28,25", Gender = 1 },
+                new Horoscope() { Id = 7, StartDate = DateTime.Parse("1996/02/19"), EndDate = DateTime.Parse("1997/02/06"), NegativeAge = "Bính Tý", FiveElements = "Mộc", HoroscopeMatch = "27,36", Gender = 1 },
+                new Horoscope() { Id = 8, StartDate = DateTime.Parse("1997/02/07"), EndDate = DateTime.Parse("1998/01/27"), NegativeAge = "Đinh Sửu", FiveElements = "Mộc", HoroscopeMatch = "38", Gender = 1 },
+                new Horoscope() { Id = 9, StartDate = DateTime.Parse("1998/01/28"), EndDate = DateTime.Parse("1999/02/15"), NegativeAge = "Mậu Dần", FiveElements = "Thổ", HoroscopeMatch = "40", Gender = 1 },
+                new Horoscope() { Id = 10, StartDate = DateTime.Parse("1999/02/16"), EndDate = DateTime.Parse("2000/02/04"), NegativeAge = "Kỷ Mão", FiveElements = "Thủy", HoroscopeMatch = "29,32,33,40", Gender = 1 },
+                new Horoscope() { Id = 11, StartDate = DateTime.Parse("2000/02/05"), EndDate = DateTime.Parse("2001/01/23"), NegativeAge = "Canh Thìn", FiveElements = "Hỏa", HoroscopeMatch = "31", Gender = 1 },
+                new Horoscope() { Id = 12, StartDate = DateTime.Parse("2001/01/24"), EndDate = DateTime.Parse("2002/02/11"), NegativeAge = "Tân Tỵ", FiveElements = "Thổ", HoroscopeMatch = "32,38,39", Gender = 1 },
+                new Horoscope() { Id = 13, StartDate = DateTime.Parse("2002/02/12"), EndDate = DateTime.Parse("2003/01/31"), NegativeAge = "Nhâm Ngọ", FiveElements = "Kim", HoroscopeMatch = "37", Gender = 1 },
+                new Horoscope() { Id = 14, StartDate = DateTime.Parse("2003/02/14"), EndDate = DateTime.Parse("2004/01/21"), NegativeAge = "Quý Mùi", FiveElements = "Kim", HoroscopeMatch = "34", Gender = 1 },
+                new Horoscope() { Id = 15, StartDate = DateTime.Parse("2004/01/22"), EndDate = DateTime.Parse("2005/02/08"), NegativeAge = "Giáp Thân", FiveElements = "Thổ", HoroscopeMatch = "36", Gender = 1 },
+                new Horoscope() { Id = 16, StartDate = DateTime.Parse("2005/02/09"), EndDate = DateTime.Parse("2006/01/28"), NegativeAge = "Ất Dậu", FiveElements = "Mộc", HoroscopeMatch = "35,36", Gender = 1 },
+                new Horoscope() { Id = 17, StartDate = DateTime.Parse("2006/01/29"), EndDate = DateTime.Parse("2007/02/16"), NegativeAge = "Bính Tuất", FiveElements = "Thổ", HoroscopeMatch = "34", Gender = 1 },
+                new Horoscope() { Id = 18, StartDate = DateTime.Parse("2007/02/17"), EndDate = DateTime.Parse("2008/02/06"), NegativeAge = "Đinh Hợi", FiveElements = "Thủy", HoroscopeMatch = "32", Gender = 1 },
+                new Horoscope() { Id = 19, StartDate = DateTime.Parse("2008/02/07"), EndDate = DateTime.Parse("2009/01/25"), NegativeAge = "Mậu Tý", FiveElements = "Hỏa", HoroscopeMatch = "35", Gender = 1 },
+                new Horoscope() { Id = 20, StartDate = DateTime.Parse("2009/01/26"), EndDate = DateTime.Parse("2010/02/13"), NegativeAge = "Kỷ Sửu", FiveElements = "Thổ", HoroscopeMatch = "38,33", Gender = 1 },
+                new Horoscope() { Id = 21, StartDate = DateTime.Parse("1990/01/27"), EndDate = DateTime.Parse("1991/02/14"), NegativeAge = "Canh Ngọ", FiveElements = "Thổ", HoroscopeMatch = "5", Gender = 0 },
+                new Horoscope() { Id = 22, StartDate = DateTime.Parse("1991/02/15"), EndDate = DateTime.Parse("1992/02/02"), NegativeAge = "Tận Mùi", FiveElements = "Kim", HoroscopeMatch = "4", Gender = 0 },
+                new Horoscope() { Id = 23, StartDate = DateTime.Parse("1992/02/04"), EndDate = DateTime.Parse("1993/01/22"), NegativeAge = "Nhâm Thân", FiveElements = "Kim", HoroscopeMatch = "3", Gender = 0 },
+                new Horoscope() { Id = 24, StartDate = DateTime.Parse("1993/01/23"), EndDate = DateTime.Parse("1994/02/09"), NegativeAge = "Quý Dậu", FiveElements = "Thổ", HoroscopeMatch = "4,6", Gender = 0 },
+                new Horoscope() { Id = 25, StartDate = DateTime.Parse("1994/02/10"), EndDate = DateTime.Parse("1995/01/30"), NegativeAge = "Giáp Tuất", FiveElements = "Hỏa", HoroscopeMatch = "3,6", Gender = 0 },
+                new Horoscope() { Id = 26, StartDate = DateTime.Parse("1995/02/01"), EndDate = DateTime.Parse("1996/02/18"), NegativeAge = "Ất Hợi", FiveElements = "Thủy", HoroscopeMatch = "8", Gender = 0 },
+                new Horoscope() { Id = 27, StartDate = DateTime.Parse("1996/02/19"), EndDate = DateTime.Parse("1997/02/06"), NegativeAge = "Bính Tý", FiveElements = "Thổ", HoroscopeMatch = "4,7", Gender = 0 },
+                new Horoscope() { Id = 28, StartDate = DateTime.Parse("1997/02/07"), EndDate = DateTime.Parse("1998/01/27"), NegativeAge = "Đinh Sửu", FiveElements = "Mộc", HoroscopeMatch = "9", Gender = 0 },
+                new Horoscope() { Id = 29, StartDate = DateTime.Parse("1998/01/28"), EndDate = DateTime.Parse("1999/02/15"), NegativeAge = "Mậu Dần", FiveElements = "Mộc", HoroscopeMatch = "6", Gender = 0 },
+                new Horoscope() { Id = 30, StartDate = DateTime.Parse("1999/02/16"), EndDate = DateTime.Parse("2000/02/04"), NegativeAge = "Kỷ Mão", FiveElements = "Thổ", HoroscopeMatch = "12", Gender = 0 },
+                new Horoscope() { Id = 31, StartDate = DateTime.Parse("2000/02/05"), EndDate = DateTime.Parse("2001/01/23"), NegativeAge = "Canh Thìn", FiveElements = "Kim", HoroscopeMatch = "8", Gender = 0 },
+                new Horoscope() { Id = 32, StartDate = DateTime.Parse("2001/01/24"), EndDate = DateTime.Parse("2002/02/11"), NegativeAge = "Tân Tỵ", FiveElements = "Kim", HoroscopeMatch = "10,12,13", Gender = 0 },
+                new Horoscope() { Id = 33, StartDate = DateTime.Parse("2002/02/12"), EndDate = DateTime.Parse("2003/01/31"), NegativeAge = "Nhâm Ngọ", FiveElements = "Hỏa", HoroscopeMatch = "11", Gender = 0 },
+                new Horoscope() { Id = 34, StartDate = DateTime.Parse("2003/02/14"), EndDate = DateTime.Parse("2004/01/21"), NegativeAge = "Quý Mùi", FiveElements = "Thủy", HoroscopeMatch = "10", Gender = 0 },
+                new Horoscope() { Id = 35, StartDate = DateTime.Parse("2004/01/22"), EndDate = DateTime.Parse("2005/02/08"), NegativeAge = "Giáp Thân", FiveElements = "Thổ", HoroscopeMatch = "13", Gender = 0 },
+                new Horoscope() { Id = 36, StartDate = DateTime.Parse("2005/02/09"), EndDate = DateTime.Parse("2006/01/28"), NegativeAge = "Ất Dậu", FiveElements = "Mộc",HoroscopeMatch = "7", Gender = 0 },
+                new Horoscope() { Id = 37, StartDate = DateTime.Parse("2006/01/29"), EndDate = DateTime.Parse("2007/02/16"), NegativeAge = "Bính Tuất", FiveElements = "Mộc", HoroscopeMatch = "18", Gender = 0 },
+                new Horoscope() { Id = 38, StartDate = DateTime.Parse("2007/02/17"), EndDate = DateTime.Parse("2008/02/06"), NegativeAge = "Đinh Hợi", FiveElements = "Thổ", HoroscopeMatch = "16,12", Gender = 0 },
+                new Horoscope() { Id = 39, StartDate = DateTime.Parse("2008/02/07"), EndDate = DateTime.Parse("2009/01/25"), NegativeAge = "Mậu Tý", FiveElements = "Kim", HoroscopeMatch = "13,14", Gender = 0 },
+                new Horoscope() { Id = 40, StartDate = DateTime.Parse("2009/01/26"), EndDate = DateTime.Parse("2010/02/13"), NegativeAge = "Kỷ Sửu", FiveElements = "Kim", HoroscopeMatch = "17", Gender = 0 }
+                    );
             //context.Users.AddOrUpdate(x => x.Id,
             //    new ApplicationUser() { Id = "1", UserName = "mai1", EmailConfirmed = false, PhoneNumberConfirmed = false, TwoFactorEnabled = false, LockoutEnabled = true, AccessFailedCount = 0, FullName = "MaiNe", Gender = 1, BirthDay = DateTime.Parse("1992/05/12"), Avatar = "", Address = "Hà Nội", Character = ApplicationUser.CharacterType.Funny },
             //    new ApplicationUser() { Id = "2", UserName = "mai2", EmailConfirmed = false, PhoneNumberConfirmed = false, TwoFactorEnabled = false, LockoutEnabled = true, AccessFailedCount = 0, FullName = "MaiNe", Gender = 0, BirthDay = DateTime.Parse("1998/02/10"), Avatar = "", Address = "Hà Nội", Character = ApplicationUser.CharacterType.Funny }
 
 
             //    );
+            var manager = new UserManager<ApplicationUser>(
+                new UserStore<ApplicationUser>(
+                    new ApplicationDbContext()));
+            var listUser = new List<ApplicationUser>()
+            {
+                new ApplicationUser(){UserName = "mai5", FullName = "Mai Ne1", BirthDay = DateTime.Parse("1998/03/12"), Avatar = "can co link anh", Gender = 1, Character = ApplicationUser.CharacterType.Funny, Address = "khong can dien vao", HoroscopeId = 9},
+                new ApplicationUser(){UserName = "mai6", FullName = "Mai Ne2", BirthDay = DateTime.Parse("2009/03/12"), Avatar = "can co link anh", Gender = 0, Character = ApplicationUser.CharacterType.Funny, Address = "khong can dien vao", HoroscopeId = 40}
+            };
+            foreach (var user in listUser)
+            {
+                manager.Create(user, "password");
+            }
         }
     }
 }

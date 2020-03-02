@@ -1,0 +1,11 @@
+﻿@model IEnumerable<HenhoOnline.Models.ApplicationUser>
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+<p>@User.Identity.Name</p>
+<p>Danh sach hop</p>
+<ul>
+    @foreach (var m in Model)
+    {
+        <li>@m.HoroscopeId - @m.FullName <img src="@m.Avatar" width="30%"/></li>
+    }
+</ul>

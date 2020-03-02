@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
+using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
@@ -12,6 +14,7 @@ namespace HenhoOnline.Models
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit https://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
     public class ApplicationUser : IdentityUser
     {
+        private ApplicationDbContext dbContext = new ApplicationDbContext();
         public string FullName { get; set; }
         public string Avatar { get; set; }
         public DateTime BirthDay { get; set; }
@@ -24,6 +27,29 @@ namespace HenhoOnline.Models
             Funny,
             [Display(Name = "Khó chịu")]
             Angry
+        }
+        public int? HoroscopeId { get; set; }
+
+        public int GetHoroscope(ApplicationUser currentUser)
+        {
+            var horoscope = dbContext.Horoscopes.Where(h =>
+                h.StartDate <= currentUser.BirthDay & h.EndDate >= currentUser.BirthDay & h.Gender == currentUser.Gender).First();
+            return horoscope.Id;
+        }
+        public List<ApplicationUser> GetListUserHoroscopeMatch(ApplicationUser currentUser)
+        {
+            var listUser = new List<ApplicationUser>();
+            if (currentUser.HoroscopeId != null)
+            {
+                var currentHoroscope = dbContext.Horoscopes.Find(currentUser.HoroscopeId);
+                var horoscopeMatchIds = currentHoroscope.HoroscopeMatch.Split(',');
+                foreach (var horoscopeId in horoscopeMatchIds)
+                {
+                    var horoscopeIdInt = Int32.Parse(horoscopeId);
+                    listUser.AddRange(dbContext.Users.Where(u => u.HoroscopeId == horoscopeIdInt).ToList());
+                }
+            }
+            return listUser;
         }
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
@@ -46,6 +72,6 @@ namespace HenhoOnline.Models
             return new ApplicationDbContext();
         }
 
-        public DbSet<TuVi> TuVis { get; set; }
+        public DbSet<Horoscope> Horoscopes { get; set; }
     }
 }

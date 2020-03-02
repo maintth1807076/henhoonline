@@ -57,6 +57,12 @@
     <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.3\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Core, Version=2.4.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.2.4.1\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.SystemWeb, Version=2.4.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.SystemWeb.2.4.1\lib\net45\Microsoft.AspNet.SignalR.SystemWeb.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Owin, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Owin.4.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
@@ -84,6 +90,7 @@
       <Private>True</Private>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Security" />
     <Reference Include="System.Text.Encodings.Web, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\CloudinaryDotNet.1.10.0\lib\net45\System.Text.Encodings.Web.dll</HintPath>
     </Reference>
@@ -188,35 +195,16 @@
     <Compile Include="Migrations\202001280633083_InitialCreate.Designer.cs">
       <DependentUpon>202001280633083_InitialCreate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202002260331498_ChangeAppUser.cs" />
-    <Compile Include="Migrations\202002260331498_ChangeAppUser.Designer.cs">
-      <DependentUpon>202002260331498_ChangeAppUser.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202002261429405_ChangeAppUser1.cs" />
-    <Compile Include="Migrations\202002261429405_ChangeAppUser1.Designer.cs">
-      <DependentUpon>202002261429405_ChangeAppUser1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202002261624027_SeedDemoTuVi.cs" />
-    <Compile Include="Migrations\202002261624027_SeedDemoTuVi.Designer.cs">
-      <DependentUpon>202002261624027_SeedDemoTuVi.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202002261639303_SeedDemoUser.cs" />
-    <Compile Include="Migrations\202002261639303_SeedDemoUser.Designer.cs">
-      <DependentUpon>202002261639303_SeedDemoUser.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202002261648520_SeedDemoUser1.cs" />
-    <Compile Include="Migrations\202002261648520_SeedDemoUser1.Designer.cs">
-      <DependentUpon>202002261648520_SeedDemoUser1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202002261650276_SeedDemoAgain.cs" />
-    <Compile Include="Migrations\202002261650276_SeedDemoAgain.Designer.cs">
-      <DependentUpon>202002261650276_SeedDemoAgain.cs</DependentUpon>
+    <Compile Include="Migrations\202003020443352_CreateHoroscope.cs" />
+    <Compile Include="Migrations\202003020443352_CreateHoroscope.Designer.cs">
+      <DependentUpon>202003020443352_CreateHoroscope.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ChatHub.cs" />
+    <Compile Include="Models\Horoscope.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\TuVi.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -226,18 +214,112 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\ajax-loader.gif" />
+    <Content Include="Content\css\animate.css" />
+    <Content Include="Content\css\aos.css" />
+    <Content Include="Content\css\bootstrap-datepicker.css" />
+    <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\bootstrap\bootstrap-grid.css" />
+    <Content Include="Content\css\bootstrap\bootstrap-reboot.css" />
+    <Content Include="Content\css\css\bootstrap-reboot.css" />
+    <Content Include="Content\css\css\mixins\_text-hide.css" />
+    <Content Include="Content\css\flaticon.css" />
+    <Content Include="Content\css\icomoon.css" />
+    <Content Include="Content\css\ionicons.min.css" />
+    <Content Include="Content\css\jquery.timepicker.css" />
+    <Content Include="Content\css\magnific-popup.css" />
+    <Content Include="Content\css\open-iconic-bootstrap.min.css" />
+    <Content Include="Content\css\owl.carousel.min.css" />
+    <Content Include="Content\css\owl.theme.default.min.css" />
+    <Content Include="Content\css\style.css" />
+    <Content Include="Content\fonts\flaticon\backup.txt" />
+    <Content Include="Content\fonts\flaticon\font\flaticon.css" />
+    <Content Include="Content\fonts\flaticon\font\flaticon.html" />
+    <Content Include="Content\fonts\flaticon\font\Flaticon.svg" />
+    <Content Include="Content\fonts\icomoon\icomoon.svg" />
+    <Content Include="Content\fonts\ionicons\css\ionicons.min.css" />
+    <Content Include="Content\fonts\ionicons\fonts\ionicons.svg" />
+    <Content Include="Content\fonts\open-iconic\open-iconic.svg" />
+    <Content Include="Content\images\about.jpg" />
+    <Content Include="Content\images\bg_1.jpg" />
+    <Content Include="Content\images\bg_2.jpg" />
+    <Content Include="Content\images\dashboard_full_1.jpg" />
+    <Content Include="Content\images\dashboard_full_2.jpg" />
+    <Content Include="Content\images\dashboard_full_3.jpg" />
+    <Content Include="Content\images\image_1.jpg" />
+    <Content Include="Content\images\image_2.jpg" />
+    <Content Include="Content\images\image_3.jpg" />
+    <Content Include="Content\images\image_4.jpg" />
+    <Content Include="Content\images\image_5.jpg" />
+    <Content Include="Content\images\image_6.jpg" />
+    <Content Include="Content\images\loc.png" />
+    <Content Include="Content\images\person_1.jpg" />
+    <Content Include="Content\images\person_2.jpg" />
+    <Content Include="Content\images\person_3.jpg" />
+    <Content Include="Content\images\person_4.jpg" />
+    <Content Include="Content\images\work-1.jpg" />
+    <Content Include="Content\images\work-2.jpg" />
+    <Content Include="Content\images\work-3.jpg" />
+    <Content Include="Content\images\work-4.jpg" />
+    <Content Include="Content\images\work-5.jpg" />
+    <Content Include="Content\images\work-6.jpg" />
+    <Content Include="Content\js\aos.js" />
+    <Content Include="Content\js\bootstrap-datepicker.js" />
+    <Content Include="Content\js\bootstrap.min.js" />
+    <Content Include="Content\js\google-map.js" />
+    <Content Include="Content\js\jquery-3.2.1.min.js" />
+    <Content Include="Content\js\jquery-migrate-3.0.1.min.js" />
+    <Content Include="Content\js\jquery.animateNumber.min.js" />
+    <Content Include="Content\js\jquery.easing.1.3.js" />
+    <Content Include="Content\js\jquery.magnific-popup.min.js" />
+    <Content Include="Content\js\jquery.min.js" />
+    <Content Include="Content\js\jquery.stellar.min.js" />
+    <Content Include="Content\js\jquery.waypoints.min.js" />
+    <Content Include="Content\js\main.js" />
+    <Content Include="Content\js\owl.carousel.min.js" />
+    <Content Include="Content\js\particle.js" />
+    <Content Include="Content\js\particles.min.js" />
+    <Content Include="Content\js\popper.min.js" />
+    <Content Include="Content\js\scrollax.min.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\css\.DS_Store" />
+    <Content Include="Content\css\bootstrap\.DS_Store" />
+    <Content Include="Content\css\css\.DS_Store" />
+    <Content Include="Content\fonts\.DS_Store" />
+    <Content Include="Content\fonts\flaticon\.DS_Store" />
+    <Content Include="Content\fonts\flaticon\font\Flaticon.eot" />
+    <Content Include="Content\fonts\flaticon\font\Flaticon.ttf" />
+    <Content Include="Content\fonts\flaticon\font\Flaticon.woff" />
+    <Content Include="Content\fonts\flaticon\font\_flaticon.scss" />
+    <Content Include="Content\fonts\flaticon\license\license.pdf" />
+    <Content Include="Content\fonts\icomoon\icomoon.eot" />
+    <Content Include="Content\fonts\icomoon\icomoon.ttf" />
+    <Content Include="Content\fonts\icomoon\icomoon.woff" />
+    <Content Include="Content\fonts\ionicons\css\_ionicons.scss" />
+    <Content Include="Content\fonts\ionicons\fonts\.DS_Store" />
+    <Content Include="Content\fonts\ionicons\fonts\ionicons.eot" />
+    <Content Include="Content\fonts\ionicons\fonts\ionicons.ttf" />
+    <Content Include="Content\fonts\ionicons\fonts\ionicons.woff" />
+    <Content Include="Content\fonts\ionicons\fonts\ionicons.woff2" />
+    <Content Include="Content\fonts\open-iconic\open-iconic.eot" />
+    <Content Include="Content\fonts\open-iconic\open-iconic.otf" />
+    <Content Include="Content\fonts\open-iconic\open-iconic.ttf" />
+    <Content Include="Content\fonts\open-iconic\open-iconic.woff" />
+    <Content Include="Content\images\.DS_Store" />
+    <Content Include="Content\js\.DS_Store" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.signalR-2.4.1.js" />
+    <Content Include="Scripts\jquery.signalR-2.4.1.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -277,6 +359,7 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Home\MatchLover.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -298,23 +381,8 @@
     <EmbeddedResource Include="Migrations\202001280633083_InitialCreate.resx">
       <DependentUpon>202001280633083_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202002260331498_ChangeAppUser.resx">
-      <DependentUpon>202002260331498_ChangeAppUser.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202002261429405_ChangeAppUser1.resx">
-      <DependentUpon>202002261429405_ChangeAppUser1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202002261624027_SeedDemoTuVi.resx">
-      <DependentUpon>202002261624027_SeedDemoTuVi.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202002261639303_SeedDemoUser.resx">
-      <DependentUpon>202002261639303_SeedDemoUser.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202002261648520_SeedDemoUser1.resx">
-      <DependentUpon>202002261648520_SeedDemoUser1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202002261650276_SeedDemoAgain.resx">
-      <DependentUpon>202002261650276_SeedDemoAgain.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202003020443352_CreateHoroscope.resx">
+      <DependentUpon>202003020443352_CreateHoroscope.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

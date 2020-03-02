@@ -1,8 +1,609 @@
-﻿@{
+﻿﻿@{
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
+
+<div class="hero-wrap js-fullheight">
+    <div class="overlay"></div>
+    <div id="particles-js"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
+            <div class="col-md-6 ftco-animate text-center" data-scrollax=" properties: { translatey: '70%' }">
+                <h1 class="mb-4" data-scrollax="properties: { translatey: '30%', opacity: 1.6 }">
+                    we love to create
+                    <strong>beautiful</strong> websites
+                </h1>
+                <p data-scrollax="properties: { translatey: '30%', opacity: 1.6 }">
+                    <a href="#" class="btn btn-primary btn-outline-white px-5 py-3">get in touch</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="ftco-section">
+    <div class="row">
+        <div class="col-4">
+            <span>thành phố :</span>
+            <select id="thanhpho"></select>
+        </div>
+        <div class="col-3">
+            <span>huyện :</span>
+            <select>
+                <option value="value">texaaaaaaaat</option>
+            </select>
+        </div>
+        <div class="col-3">
+            <span>xã / phường :</span>
+            <select>
+                <option value="value">taaaaaaat</option>
+            </select>
+        </div>
+    </div>
+</section>
+
+<section class="ftco-section">
+    <div class="row">
+        <div class="col-6">
+            <div>
+                <div>Nhập tên của bạn</div>
+                <input type="text" name="name" value="" id="yourname" placeholder="Họ và tên" />
+            </div>
+            <br />
+            <div>
+                <div>Ngày sinh</div>
+                <input type="date" placeholder="search users" id="filter_users" value="" />
+            </div>
+            <div>
+                <form id="gender">
+                    <label class="col-3">
+                        <span>Nam :</span>
+                        <input type="radio" name="name" value="1" />
+                    </label>
+                    <label class="col-3">
+                        <span>Nữ :</span>
+                        <input type="radio" name="name" value="0" />
+                    </label>
+                </form>
+            </div>
+            <br />
+            <button onclick="onClick()">click</button>
+        </div>
+        <div class="col-6">
+            <ul id="users-list"></ul>
+        </div>
+    </div>
+</section>
+
+<section class="ftco-section">
+    <div class="container">
+        <div class="row justify-content-center mb-5 pb-5">
+            <div class="col-md-6 text-center heading-section ftco-animate">
+                <span class="subheading">our services</span>
+                <h2 class="mb-4">web &amp; mobile app design, bring your ideas to life</h2>
+                <p>far far away, behind the word mountains, far from the countries vokalia and consonantia, there live the blind texts. separated they live in</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-lg-3 d-flex align-self-stretch ftco-animate">
+                <div class="media block-6 services d-block text-center">
+                    <div class="d-flex justify-content-center">
+                        <div class="icon color-3 d-flex justify-content-center mb-3">
+                            <span class="align-self-center icon-lightbulb-o"></span>
+                        </div>
+                    </div>
+                    <div class="media-body p-2 mt-3">
+                        <h3 class="heading">strategy</h3>
+                        <p>even the all-powerful pointing has no control about the blind texts it is an almost unorthographic.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3 d-flex align-self-stretch ftco-animate">
+                <div class="media block-6 services d-block text-center">
+                    <div class="d-flex justify-content-center">
+                        <div class="icon color-1 d-flex justify-content-center mb-3">
+                            <span class="align-self-center icon-laptop"></span>
+                        </div>
+                    </div>
+                    <div class="media-body p-2 mt-3">
+                        <h3 class="heading">design</h3>
+                        <p>even the all-powerful pointing has no control about the blind texts it is an almost unorthographic.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3 d-flex align-self-stretch ftco-animate">
+                <div class="media block-6 services d-block text-center">
+                    <div class="d-flex justify-content-center">
+                        <div class="icon color-2 d-flex justify-content-center mb-3">
+                            <span class="align-self-center icon-gear"></span>
+                        </div>
+                    </div>
+                    <div class="media-body p-2 mt-3">
+                        <h3 class="heading">development</h3>
+                        <p>even the all-powerful pointing has no control about the blind texts it is an almost unorthographic.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3 d-flex align-self-stretch ftco-animate">
+                <div class="media block-6 services d-block text-center">
+                    <div class="d-flex justify-content-center">
+                        <div class="icon color-4 d-flex justify-content-center mb-3">
+                            <span class="align-self-center icon-live_help"></span>
+                        </div>
+                    </div>
+                    <div class="media-body p-2 mt-3">
+                        <h3 class="heading">help &amp; supports</h3>
+                        <p>even the all-powerful pointing has no control about the blind texts it is an almost unorthographic.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="ftco-section-parallax">
+    <div class="parallax-img d-flex align-items-center">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
+                    <h2>subcribe to our newsletter</h2>
+                    <p>far far away, behind the word mountains, far from the countries vokalia and consonantia, there live the blind texts. separated they live in</p>
+                    <div class="row d-flex justify-content-center mt-5">
+                        <div class="col-md-6">
+                            <form action="#" class="subscribe-form">
+                                <div class="form-group">
+                                    <span class="icon icon-paper-plane"></span>
+                                    <input type="text" class="form-control" placeholder="enter email address">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="ftco-section">
+    <div class="container">
+        <div class="row no-gutters justify-content-center mb-5 pb-5">
+            <div class="col-md-7 text-center heading-section ftco-animate">
+                <span class="subheading">works</span>
+                <h2 class="mb-4">view our works below to see our design and way of development.</h2>
+                <p>far far away, behind the word mountains, far from the countries vokalia and consonantia, there live the blind texts. separated they live in</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="block-3 d-md-flex ftco-animate" data-scrollax-parent="true">
+                <a href="portfolio.html" class="image" style="background-image: url('images/work-1.jpg'); " data-scrollax=" properties: { translatey: '-20%'}">
+                </a>
+                <div class="text">
+                    <h4 class="subheading">illustration</h4>
+                    <h2 class="heading">
+                        <a href="portfolio.html">even the all-powerful pointing has no control</a>
+                    </h2>
+                    <p>even the all-powerful pointing has no control about the blind texts it is an almost unorthographic life one day however a small line of blind text by the name of lorem ipsum decided to leave for the far world of grammar.</p>
+                    <p>
+                        <a href="portfolio.html" class="btn btn-primary px-4">view portfolio</a>
+                    </p>
+                </div>
+            </div>
+            <div class="block-3 d-md-flex ftco-animate" data-scrollax-parent="true">
+                <a href="portfolio.html" class="image image-2 order-2" style="background-image: url('images/work-2.jpg');" data-scrollax=" properties: { translatey: '-20%'}"></a>
+                <div class="text order-1">
+                    <h4 class="subheading">application</h4>
+                    <h2 class="heading">
+                        <a href="portfolio.html">even the all-powerful pointing has no control</a>
+                    </h2>
+                    <p>even the all-powerful pointing has no control about the blind texts it is an almost unorthographic life one day however a small line of blind text by the name of lorem ipsum decided to leave for the far world of grammar.</p>
+                    <p>
+                        <a href="portfolio.html" class="btn btn-primary px-4">view portfolio</a>
+                    </p>
+                </div>
+            </div>
+            <div class="block-3 d-md-flex ftco-animate" data-scrollax-parent="true">
+                <a href="portfolio.html" class="image" style="background-image: url('images/work-3.jpg'); " data-scrollax=" properties: { translatey: '-20%'}"></a>
+                <div class="text">
+                    <h4 class="subheading">web design</h4>
+                    <h2 class="heading">
+                        <a href="portfolio.html">even the all-powerful pointing has no control</a>
+                    </h2>
+                    <p>even the all-powerful pointing has no control about the blind texts it is an almost unorthographic life one day however a small line of blind text by the name of lorem ipsum decided to leave for the far world of grammar.</p>
+                    <p>
+                        <a href="portfolio.html" class="btn btn-primary px-4">view portfolio</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <span><a href="#" class="btn btn-primary py-3 px-5">view all projects</a></span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="ftco-section testimony-section bg-light">
+    <div class="container">
+        <div class="row justify-content-center mb-5 pb-5">
+            <div class="col-md-7 text-center heading-section ftco-animate">
+                <span class="subheading">customer says</span>
+                <h2 class="mb-4">our satisfied customer says</h2>
+                <p>far far away, behind the word mountains, far from the countries vokalia and consonantia, there live the blind texts. separated they live in</p>
+            </div>
+        </div>
+        <div class="row ftco-animate">
+            <div class="col-md-12">
+                <div class="carousel-testimony owl-carousel ftco-owl">
+                    <div class="item text-center">
+                        <div class="testimony-wrap p-4 pb-5">
+                            <div class="user-img mb-4" style="background-image: url(images/person_1.jpg)">
+                                <span class="quote d-flex align-items-center justify-content-center">
+                                    <i class="icon-quote-left"></i>
+                                </span>
+                            </div>
+                            <div class="text">
+                                <p class="mb-5">far far away, behind the word mountains, far from the countries vokalia and consonantia, there live the blind texts.</p>
+                                <p class="name">dennis green</p>
+                                <span class="position">marketing manager</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item text-center">
+                        <div class="testimony-wrap p-4 pb-5">
+                            <div class="user-img mb-4" style="background-image: url(images/person_2.jpg)">
+                                <span class="quote d-flex align-items-center justify-content-center">
+                                    <i class="icon-quote-left"></i>
+                                </span>
+                            </div>
+                            <div class="text">
+                                <p class="mb-5">far far away, behind the word mountains, far from the countries vokalia and consonantia, there live the blind texts.</p>
+                                <p class="name">dennis green</p>
+                                <span class="position">interface designer</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item text-center">
+                        <div class="testimony-wrap p-4 pb-5">
+                            <div class="user-img mb-4" style="background-image: url(images/person_3.jpg)">
+                                <span class="quote d-flex align-items-center justify-content-center">
+                                    <i class="icon-quote-left"></i>
+                                </span>
+                            </div>
+                            <div class="text">
+                                <p class="mb-5">far far away, behind the word mountains, far from the countries vokalia and consonantia, there live the blind texts.</p>
+                                <p class="name">dennis green</p>
+                                <span class="position">ui designer</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item text-center">
+                        <div class="testimony-wrap p-4 pb-5">
+                            <div class="user-img mb-4" style="background-image: url(images/person_1.jpg)">
+                                <span class="quote d-flex align-items-center justify-content-center">
+                                    <i class="icon-quote-left"></i>
+                                </span>
+                            </div>
+                            <div class="text">
+                                <p class="mb-5">far far away, behind the word mountains, far from the countries vokalia and consonantia, there live the blind texts.</p>
+                                <p class="name">dennis green</p>
+                                <span class="position">web developer</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item text-center">
+                        <div class="testimony-wrap p-4 pb-5">
+                            <div class="user-img mb-4" style="background-image: url(images/person_1.jpg)">
+                                <span class="quote d-flex align-items-center justify-content-center">
+                                    <i class="icon-quote-left"></i>
+                                </span>
+                            </div>
+                            <div class="text">
+                                <p class="mb-5">far far away, behind the word mountains, far from the countries vokalia and consonantia, there live the blind texts.</p>
+                                <p class="name">dennis green</p>
+                                <span class="position">system analytics</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="ftco-section ftco-counter" id="section-counter">
+    <div class="container">
+        <div class="row justify-content-center mb-5 pb-5">
+            <div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
+                <h2>our achievements</h2>
+                <p>far far away, behind the word mountains, far from the countries vokalia and consonantia, there live the blind texts. separated they live in</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-lg-4 d-flex justify-content-center counter-wrap ftco-animate">
+                <div class="block-18 text-center">
+                    <div class="text">
+                        <strong class="number" data-number="400">0</strong>
+                        <span>customers are satisfied with our professional support</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 d-flex justify-content-center counter-wrap ftco-animate">
+                <div class="block-18 text-center">
+                    <div class="text">
+                        <strong class="number" data-number="1000">0</strong>
+                        <span>amazing preset options to be mixed and combined</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 d-flex justify-content-center counter-wrap ftco-animate">
+                <div class="block-18 text-center">
+                    <div class="text">
+                        <strong class="number" data-number="8000">0</strong>
+                        <span>average response time on live chat support channel</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="ftco-section bg-light">
+    <div class="container">
+        <div class="row justify-content-center mb-5 pb-5">
+            <div class="col-md-7 text-center heading-section ftco-animate">
+                <span class="subheading">blog</span>
+                <h2>recent blog</h2>
+                <p>far far away, behind the word mountains, far from the countries vokalia and consonantia, there live the blind texts. separated they live in</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 ftco-animate">
+                <div class="blog-entry">
+                    <a href="blog-single.html" class="block-20" style="background-image: url('images/image_1.jpg');">
+                    </a>
+                    <div class="text p-4 d-block">
+                        <div class="meta mb-3">
+                            <div>
+                                <a href="#">july 12, 2018</a>
+                            </div>
+                            <div>
+                                <a href="#">admin</a>
+                            </div>
+                            <div>
+                                <a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a>
+                            </div>
+                        </div>
+                        <h3 class="heading">
+                            <a href="#">even the all-powerful pointing has no control about the blind texts</a>
+                        </h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 ftco-animate">
+                <div class="blog-entry" data-aos-delay="100">
+                    <a href="blog-single.html" class="block-20" style="background-image: url('images/image_2.jpg');">
+                    </a>
+                    <div class="text p-4">
+                        <div class="meta mb-3">
+                            <div>
+                                <a href="#">july 12, 2018</a>
+                            </div>
+                            <div>
+                                <a href="#">admin</a>
+                            </div>
+                            <div>
+                                <a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a>
+                            </div>
+                        </div>
+                        <h3 class="heading">
+                            <a href="#">even the all-powerful pointing has no control about the blind texts</a>
+                        </h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 ftco-animate">
+                <div class="blog-entry" data-aos-delay="200">
+                    <a href="blog-single.html" class="block-20" style="background-image: url('images/image_3.jpg');">
+                    </a>
+                    <div class="text p-4">
+                        <div class="meta mb-3">
+                            <div>
+                                <a href="#">july 12, 2018</a>
+                            </div>
+                            <div>
+                                <a href="#">admin</a>
+                            </div>
+                            <div>
+                                <a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a>
+                            </div>
+                        </div>
+                        <h3 class="heading">
+                            <a href="#">even the all-powerful pointing has no control about the blind texts</a>
+                        </h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<script>var tuvinam = {
+        "male": [
+            { "id": 1, "startdate": 633398400, "enddate": 666489600, "tuoi": "canh ngọ", "menh": "thủy", "tuoihop": "tân mùi, giáp tuất, đinh sửu, mậu thìn", "gender": 1 },
+            { "id": 2, "startdate": 666576000, "enddate": 697075200, "tuoi": "tận mùi", "menh": "hỏa", "tuoihop": "quý dậu, ất hợi, bính tý, kỷ mão, kỷ tỵ, canh ngọ", "gender": 1 },
+            { "id": 3, "startdate": 697161600, "enddate": 727660800, "tuoi": "nhâm thân", "menh": "thổ", "tuoihop": "canh thân, mậu dần, canh thìn", "gender": 1 },
+            { "id": 4, "startdate": 727747200, "enddate": 760752000, "tuoi": "quý dậu", "menh": "kim", "tuoihop": "quý dậu, ất hợi, đinh sửu, kỷ mão, tân tỵ", "gender": 1 },
+            { "id": 5, "startdate": 760838400, "enddate": 791424000, "tuoi": "giáp tuất", "menh": "kim", "tuoihop": "ất hợi, bính tý, mậu dần, tân tỵ, nhâm ngọ, nhâm thân", "gender": 1 },
+            { "id": 6, "startdate": 791596800, "enddate": 824601600, "tuoi": "ất hợi", "menh": "thổ", "tuoihop": "đinh sửu, canh thìn, quý mùi, giáp tuất", "gender": 1 },
+            { "id": 7, "startdate": 824688000, "enddate": 855187200, "tuoi": "bính tý", "menh": "mộc", "tuoihop": "bính tý, tân tỵ, nhâm ngọ, ất dậu", "gender": 1 },
+            { "id": 8, "startdate": 855273600, "enddate": 885859200, "tuoi": "đinh sửu", "menh": "mộc", "tuoihop": "canh dần, quý tỵ, giáp ngọ, bính thân, mậu tý, đinh hợi", "gender": 1 },
+            { "id": 9, "startdate": 885945600, "enddate": 919036800, "tuoi": "mậu dần", "menh": "thổ", "tuoihop": "nhâm thìn, ất mùi, mật tuất, kỷ sửu", "gender": 1 },
+            { "id": 10, "startdate": 919123200, "enddate": 949622400, "tuoi": "kỷ mão", "menh": "thủy", "tuoihop": "tân tỵ, nhâm ngọ, giáp thân, đinh hợi, mậu dần", "gender": 1 },
+            { "id": 11, "startdate": 949708800, "enddate": 980208000, "tuoi": "canh thìn", "menh": "hỏa", "tuoihop": "canh thìn, bính tuất, kỷ sửu, đinh sửu", "gender": 1 },
+            { "id": 12, "startdate": 980294400, "enddate": 1013385600, "tuoi": "tân tỵ", "menh": "thổ", "tuoihop": "tân tỵ, nhâm ngọ, ất dậu, đinh hợi, mậu tý, kỷ mão", "gender": 1 },
+            { "id": 13, "startdate": 1013472000, "enddate": 1043971200, "tuoi": "nhâm ngọ", "menh": "hỏa", "tuoihop": "giáp thân, bính tuất, canh dần, canh thìn", "gender": 1 },
+            { "id": 14, "startdate": 1045180800, "enddate": 1074643200, "tuoi": "quý mùi", "menh": "kim", "tuoihop": "quý mùi, ất mùi, đinh hợi, kỷ sửu, tân mão, tân tỵ, kỷ mão", "gender": 1 },
+            { "id": 15, "startdate": 1074729600, "enddate": 1107820800, "tuoi": "giáp thân", "menh": "thổ", "tuoihop": "nhâm tuất, ất sửu, mậu thìn, kỷ mùi", "gender": 1 },
+            { "id": 16, "startdate": 1107907200, "enddate": 1138406400, "tuoi": "ất dậu", "menh": "mộc", "tuoihop": "bính tuất, kỷ sửu, nhâm thìn, quý mùi", "gender": 1 },
+            { "id": 17, "startdate": 1138492800, "enddate": 1171584000, "tuoi": "bính tuất", "menh": "thổ", "tuoihop": "đinh hợi, mậu tý, tân mão, quý tỵ, giáp ngọ, ất dậu", "gender": 1 },
+            { "id": 18, "startdate": 1171670400, "enddate": 1202256000, "tuoi": "đinh hợi", "menh": "thủy", "tuoihop": "canh dần, nhâm thìn, bính tuất", "gender": 1 },
+            { "id": 19, "startdate": 1202342400, "enddate": 1232841600, "tuoi": "mậu tý", "menh": "hỏa", "tuoihop": "kỷ sửu, đinh dậu, đinh hợi, ất mùi", "gender": 1 },
+            { "id": 20, "startdate": 1232928000, "enddate": 1266019200, "tuoi": "kỷ sửu", "menh": "thổ", "tuoihop": "canh dần, quý tỵ, giáp ngọ, bính thân, mậu tý, đinh hợi", "gender": 1 },
+        ]
+    }
+
+    var tuvinu = {
+        "female": [
+            { "id": 1, "startdate": 633398400, "enddate": 666489600, "tuoi": "canh ngọ", "menh": "thổ", "tuoihop": "tân mùi, giáp tuất, đinh sửu, mậu thìn", "gender": 0 },
+            { "id": 2, "startdate": 666576000, "enddate": 697075200, "tuoi": "tận mùi", "menh": "kim", "tuoihop": "quý dậu, ất hợi, bính tý, kỷ mão, canh ngọ, kỷ tỵ", "gender": 0 },
+            { "id": 3, "startdate": 697161600, "enddate": 727660800, "tuoi": "nhâm thân", "menh": "kim", "tuoihop": "nhâm thân, giáp tuất, mậu dần, canh thìn", "gender": 0 },
+            { "id": 4, "startdate": 727747200, "enddate": 760752000, "tuoi": "quý dậu", "menh": "thổ", "tuoihop": "quý dậu, ất hợi, đinh sửu, kỷ mão, tân kỵ và tân mùi", "gender": 0 },
+            { "id": 5, "startdate": 760838400, "enddate": 791424000, "tuoi": "giáp tuất", "menh": "kim", "tuoihop": "ất hợi, bính tý, mậu dần, tân tỵ, nhâm ngọ, nhâm thân", "gender": 0 },
+            { "id": 6, "startdate": 791596800, "enddate": 824601600, "tuoi": "ất hợi", "menh": "thủy", "tuoihop": "đinh sửu, canh thìn, quý mùi, giáp tuất", "gender": 0 },
+            { "id": 7, "startdate": 824688000, "enddate": 855187200, "tuoi": "bính tý", "menh": "thổ", "tuoihop": "bính tý , tân tỵ, nhâm ngọ, ất dậu, ất hợi, quý dậu", "gender": 0 },
+            { "id": 8, "startdate": 855273600, "enddate": 885859200, "tuoi": "đinh sửu", "menh": "mộc", "tuoihop": "mậu dần, canh thìn, giáp thân", "gender": 0 },
+            { "id": 9, "startdate": 885945600, "enddate": 919036800, "tuoi": "mậu dần", "menh": "mộc", "tuoihop": "kỷ mão, quý mùi, ất dậu, đinh hợi, đinh sửu, ất hợi", "gender": 0 },
+            { "id": 10, "startdate": 919123200, "enddate": 949622400, "tuoi": "kỷ mão", "menh": "thổ", "tuoihop": "tân tỵ, nhâm ngọ, giáp thân, đinh hợi, mậu dần", "gender": 0 },
+            { "id": 11, "startdate": 949708800, "enddate": 980208000, "tuoi": "canh thìn", "menh": "kim", "tuoihop": "canh thìn, bính tuất, kỷ sửu, đinh sửu", "gender": 0 },
+            { "id": 12, "startdate": 980294400, "enddate": 1013385600, "tuoi": "tân tỵ", "menh": "kim", "tuoihop": "tân tỵ, nhâm ngọ, ất dậu, đinh hợi, mậu tý, kỷ mão", "gender": 0 },
+            { "id": 13, "startdate": 1013472000, "enddate": 1043971200, "tuoi": "nhâm ngọ", "menh": "hỏa", "tuoihop": "giáp thân, bính tuất, canh dần, canh thìn", "gender": 0 },
+            { "id": 14, "startdate": 1045180800, "enddate": 1074643200, "tuoi": "quý mùi", "menh": "thủy", "tuoihop": "quý mùi, ất dậu, đinh hợi, kỷ sửu, tân mão, tân tỵ, kỷ mão", "gender": 0 },
+            { "id": 15, "startdate": 1074729600, "enddate": 1107820800, "tuoi": "giáp thân", "menh": "thổ", "tuoihop": "giáp thân, mậu tý, canh dần, quý tỵ, nhâm ngọ, tân tỵ", "gender": 0 },
+            { "id": 16, "startdate": 1107907200, "enddate": 1138406400, "tuoi": "ất dậu", "menh": "mộc", "tuoihop": "bính tuất, kỷ sửu, nhâm thìn và quý mùi", "gender": 0 },
+            { "id": 17, "startdate": 1138492800, "enddate": 1171584000, "tuoi": "bính tuất", "menh": "mộc", "tuoihop": "đinh hợi, mậu tý, tân mão, quý tỵ, giáp ngọ, ất dậu", "gender": 0 },
+            { "id": 18, "startdate": 1171670400, "enddate": 1202256000, "tuoi": "đinh hợi", "menh": "thổ", "tuoihop": "canh dần, nhâm thìn, bính tuất", "gender": 0 },
+            { "id": 19, "startdate": 1202342400, "enddate": 1232841600, "tuoi": "mậu tý", "menh": "kim", "tuoihop": "kỷ sửu, quí tỵ, ất mùi, đinh dậu, đinh hợi, ất dậu", "gender": 0 },
+            { "id": 20, "startdate": 1232928000, "enddate": 1266019200, "tuoi": "kỷ sửu", "menh": "kim", "tuoihop": "canh dần, quý tỵ, giáp ngọ, bính thân, mậu tý, đinh hợi", "gender": 0 },
+        ]
+    };
+
+    function onClick() {
+
+
+        var s = new Date(document.getElementById("filter_users").value)
+        var x = s.getTime() / 1000;
+        function findDate(date) {
+            var y = date.startdate;
+            var z = date.enddate;
+            var radio = parseInt(document.querySelector('input[name="name"]:checked').value) + 0;
+            if (document.querySelector('input[name="name"]:checked').value === "1") {
+                return y <= x && z >= x && radio === 1;
+            };
+            if (document.querySelector('input[name="name"]:checked').value === "0") {
+                return y <= x && z >= x && radio === 0;
+            }
+
+        };
+
+        var li = "";
+        var inputgender = "";
+
+        if (document.querySelector('input[name="name"]:checked').value === "1") {
+            inputgender = "Nam"
+        } else if (document.querySelector('input[name="name"]:checked').value === "0") {
+            inputgender = "Nữ"
+        };
+
+        if (document.querySelector('input[name="name"]:checked').value === "1") {
+            li += ("<li>" + "<span>" + "Tên của bạn :" + "</span>" + document.getElementById("yourname").value + "</li>") +
+                ("<li>" + "<span>" + "Giới tính :" + "</span>" + inputgender + "</li>") +
+                ("<li>" + "<span>" + "Tuổi của bạn :" + "</span>" + tuvinam.male.find(findDate).tuoi + "</li>") +
+                ("<li>" + "<span>" + "Mệnh của bạn :" + "</span>" + tuvinam.male.find(findDate).menh + "</li>") +
+                ("<li>" + "<span>" + "Tuổi hợp của bạn :" + "</span>" + tuvinam.male.find(findDate).tuoihop + "</li>");
+        };
+
+
+        if (document.querySelector('input[name="name"]:checked').value === "0") {
+            li += ("<li>" + "<span>" + "Tên của bạn :" + "</span>" + document.getElementById("yourname").value + "</li>") +
+                ("<li>" + "<span>" + "Giới tính :" + "</span>" + inputgender + "</li>") +
+                ("<li>" + "<span>" + "Tuổi của bạn :" + "</span>" + tuvinu.female.find(findDate).tuoi + "</li>") +
+                ("<li>" + "<span>" + "Mệnh của bạn :" + "</span>" + tuvinu.female.find(findDate).menh + "</li>") +
+                ("<li>" + "<span>" + "Tuổi hợp của bạn :" + "</span>" + tuvinu.female.find(findDate).tuoihop + "</li>");
+        };
+
+        document.getElementById("users-list").innerHTML = li;
+    };</script>
+
+<script>const inventory = [
+        { name: 'apples', start: 2, end: 4 },
+        { name: 'bananas', start: 5, end: 7 },
+        { name: 'cherries', start: 8, end: 10 }
+    ];
+
+    function ontest() {
+        function ischerries(fruit) {
+            var a = document.getElementById("test").value;
+            var b = parseInt(a) + 0;
+            return fruit.start <= b && fruit.end >= b && document.getElementById("gender").value === 1;
+        }
+        document.getElementById("list-test").innerHTML = inventory.find(ischerries).name
+    };</script>
+
+<script>var thanhpho = [
+        { "type": 1, "solrid": "/chua-ro", "id": 64, "title": "chưa rõ", "stt": 0, "created": null, "updated": null, "totaldoanhnghiep": 61846 },
+        { "type": 1, "solrid": "/tien-giang", "id": 1, "title": "tiền giang", "stt": 0, "created": null, "updated": null, "totaldoanhnghiep": 10767 },
+        { "type": 1, "solrid": "/hung-yen", "id": 2, "title": "hưng yên", "stt": 0, "created": null, "updated": null, "totaldoanhnghiep": 12092 },
+        { "type": 1, "solrid": "/ha-noi", "id": 3, "title": "hà nội", "stt": 0, "created": null, "updated": null, "totaldoanhnghiep": 280780 },
+        { "type": 1, "solrid": "/tp-ho-chi-minh", "id": 4, "title": "tp hồ chí minh", "stt": 0, "created": null, "updated": null, "totaldoanhnghiep": 464745 },
+        { "type": 1, "solrid": "/ca-mau", "id": 5, "title": "cà mau", "stt": 0, "created": null, "updated": null, "totaldoanhnghiep": 10756 },
+        { "type": 1, "solrid": "/dac-lac", "id": 6, "title": "đắc lắc", "stt": 0, "created": null, "updated": null, "totaldoanhnghiep": 11143 },
+        { "type": 1, "solrid": "/nam-dinh", "id": 7, "title": "nam định", "stt": 0, "created": null, "updated": null, "totaldoanhnghiep": 11968 },
+        { "type": 1, "solrid": "/quang-ninh", "id": 8, "title": "quảng ninh", "stt": 0, "created": null, "updated": null, "totaldoanhnghiep": 19587 },
+        { "type": 1, "solrid": "/dak-nong", "id": 9, "title": "đắk nông", "stt": 0, "created": null, "updated": null, "totaldoanhnghiep": 5308 },
+        { "type": 1, "solrid": "/da-nang", "id": 10, "title": "đà nẵng", "stt": 0, "created": null, "updated": null, "totaldoanhnghiep": 40660 },
+        { "type": 1, "solrid": "/hai-duong", "id": 11, "title": "hải dương", "stt": 0, "created": null, "updated": null, "totaldoanhnghiep": 16816 },
+        { "type": 1, "solrid": "/long-an", "id": 12, "title": "long an", "stt": 0, "created": null, "updated": null, "totaldoanhnghiep": 18985 },
+        { "type": 1, "solrid": "/ben-tre", "id": 13, "title": "bến tre", "stt": 0, "created": null, "updated": null, "totaldoanhnghiep": 8272 },
+        { "type": 1, "solrid": "/dong-thap", "id": 14, "title": "đồng tháp", "stt": 0, "created": null, "updated": null, "totaldoanhnghiep": 10465 },
+        { "type": 1, "solrid": "/vinh-long", "id": 15, "title": "vĩnh long", "stt": 0, "created": null, "updated": null, "totaldoanhnghiep": 7250 },
+        { "type": 1, "solrid": "/kien-giang", "id": 16, "title": "kiên giang", "stt": 0, "created": null, "updated": null, "totaldoanhnghiep": 17319 },
+        { "type": 1, "solrid": "/tra-vinh", "id": 17, "title": "trà vinh", "stt": 0, "created": null, "updated": null, "totaldoanhnghiep": 5618 },
+        { "type": 1, "solrid": "/soc-trang", "id": 18, "title": "sóc trăng", "stt": 0, "created": null, "updated": null, "totaldoanhnghiep": 6378 },
+        { "type": 1, "solrid": "/bac-ninh", "id": 19, "title": "bắc ninh", "stt": 0, "created": null, "updated": null, "totaldoanhnghiep": 16922 },
+        { "type": 1, "solrid": "/thanh-hoa", "id": 20, "title": "thanh hoá", "stt": 0, "created": null, "updated": null, "totaldoanhnghiep": 24655 },
+        { "type": 1, "solrid": "/vung-tau", "id": 21, "title": "vũng tàu", "stt": 0, "created": null, "updated": null, "totaldoanhnghiep": 18552 },
+        { "type": 1, "solrid": "/dong-nai", "id": 22, "title": "đồng nai", "stt": 0, "created": null, "updated": null, "totaldoanhnghiep": 42102 },
+        { "type": 1, "solrid": "/binh-duong", "id": 23, "title": "bình dương", "stt": 0, "created": null, "updated": null, "totaldoanhnghiep": 43971 },
+        { "type": 1, "solrid": "/thai-nguyen", "id": 24, "title": "thái nguyên", "stt": 0, "created": null, "updated": null, "totaldoanhnghiep": 9589 },
+        { "type": 1, "solrid": "/thai-binh", "id": 25, "title": "thái bình", "stt": 0, "created": null, "updated": null, "totaldoanhnghiep": 10875 },
+        { "type": 1, "solrid": "/can-tho", "id": 26, "title": "cần thơ", "stt": 0, "created": null, "updated": null, "totaldoanhnghiep": 19666 },
+        { "type": 1, "solrid": "/nghe-an", "id": 27, "title": "nghệ an", "stt": 0, "created": null, "updated": null, "totaldoanhnghiep": 22916 },
+        { "type": 1, "solrid": "/hue", "id": 28, "title": "huế", "stt": 0, "created": null, "updated": null, "totaldoanhnghiep": 9914 },
+        { "type": 1, "solrid": "/binh-phuoc", "id": 29, "title": "bình phước", "stt": 0, "created": null, "updated": null, "totaldoanhnghiep": 10925 },
+        { "type": 1, "solrid": "/quang-nam", "id": 30, "title": "quảng nam", "stt": 0, "created": null, "updated": null, "totaldoanhnghiep": 13980 },
+        { "type": 1, "solrid": "/quang-ngai", "id": 31, "title": "quảng ngãi", "stt": 0, "created": null, "updated": null, "totaldoanhnghiep": 10461 },
+        { "type": 1, "solrid": "/ninh-thuan", "id": 32, "title": "ninh thuận", "stt": 0, "created": null, "updated": null, "totaldoanhnghiep": 4929 },
+        { "type": 1, "solrid": "/lao-cai", "id": 33, "title": "lào cai", "stt": 0, "created": null, "updated": null, "totaldoanhnghiep": 6650 },
+        { "type": 1, "solrid": "/hai-phong", "id": 34, "title": "hải phòng", "stt": 0, "created": null, "updated": null, "totaldoanhnghiep": 44472 },
+        { "type": 1, "solrid": "/an-giang", "id": 35, "title": "an giang", "stt": 0, "created": null, "updated": null, "totaldoanhnghiep": 12958 },
+        { "type": 1, "solrid": "/phu-tho", "id": 36, "title": "phú thọ", "stt": 0, "created": null, "updated": null, "totaldoanhnghiep": 9774 },
+        { "type": 1, "solrid": "/tay-ninh", "id": 37, "title": "tây ninh", "stt": 0, "created": null, "updated": null, "totaldoanhnghiep": 11241 },
+        { "type": 1, "solrid": "/khanh-hoa", "id": 38, "title": "khánh hòa", "stt": 0, "created": null, "updated": null, "totaldoanhnghiep": 22387 },
+        { "type": 1, "solrid": "/phu-yen", "id": 39, "title": "phú yên", "stt": 0, "created": null, "updated": null, "totaldoanhnghiep": 6519 }, { "type": 1, "solrid": "/hoa-binh", "id": 40, "title": "hòa bình", "stt": 0, "created": null, "updated": null, "totaldoanhnghiep": 6365 }, { "type": 1, "solrid": "/tuyen-quang", "id": 41, "title": "tuyên quang", "stt": 0, "created": null, "updated": null, "totaldoanhnghiep": 3711 }, { "type": 1, "solrid": "/lai-chau", "id": 42, "title": "lai châu", "stt": 0, "created": null, "updated": null, "totaldoanhnghiep": 3093 }, { "type": 1, "solrid": "/hau-giang", "id": 43, "title": "hậu giang", "stt": 0, "created": null, "updated": null, "totaldoanhnghiep": 5565 }, { "type": 1, "solrid": "/lam-dong", "id": 44, "title": "lâm đồng", "stt": 0, "created": null, "updated": null, "totaldoanhnghiep": 15326 }, { "type": 1, "solrid": "/lang-son", "id": 45, "title": "lạng sơn", "stt": 0, "created": null, "updated": null, "totaldoanhnghiep": 5732 }, { "type": 1, "solrid": "/ha-nam", "id": 46, "title": "hà nam", "stt": 0, "created": null, "updated": null, "totaldoanhnghiep": 7136 }, { "type": 1, "solrid": "/bac-can", "id": 47, "title": "bắc cạn", "stt": 0, "created": null, "updated": null, "totaldoanhnghiep": 2331 }, { "type": 1, "solrid": "/binh-dinh", "id": 48, "title": "bình định", "stt": 0, "created": null, "updated": null, "totaldoanhnghiep": 13995 }, { "type": 1, "solrid": "/cao-bang", "id": 49, "title": "cao bằng", "stt": 0, "created": null, "updated": null, "totaldoanhnghiep": 3571 }, { "type": 1, "solrid": "/son-la", "id": 50, "title": "sơn la", "stt": 0, "created": null, "updated": null, "totaldoanhnghiep": 5371 }, { "type": 1, "solrid": "/quang-binh", "id": 51, "title": "quảng bình", "stt": 0, "created": null, "updated": null, "totaldoanhnghiep": 8420 }, { "type": 1, "solrid": "/quang-tri", "id": 52, "title": "quảng trị", "stt": 0, "created": null, "updated": null, "totaldoanhnghiep": 6934 }, { "type": 1, "solrid": "/gia-lai", "id": 53, "title": "gia lai", "stt": 0, "created": null, "updated": null, "totaldoanhnghiep": 9542 }, { "type": 1, "solrid": "/bac-giang", "id": 54, "title": "bắc giang", "stt": 0, "created": null, "updated": null, "totaldoanhnghiep": 11714 }, { "type": 1, "solrid": "/ha-tinh", "id": 55, "title": "hà tĩnh", "stt": 0, "created": null, "updated": null, "totaldoanhnghiep": 10707 }, { "type": 1, "solrid": "/ninh-binh", "id": 56, "title": "ninh bình", "stt": 0, "created": null, "updated": null, "totaldoanhnghiep": 7990 }, { "type": 1, "solrid": "/binh-thuan", "id": 57, "title": "bình thuận", "stt": 0, "created": null, "updated": null, "totaldoanhnghiep": 11334 }, { "type": 1, "solrid": "/kon-tum", "id": 58, "title": "kon tum", "stt": 0, "created": null, "updated": null, "totaldoanhnghiep": 4733 }, { "type": 1, "solrid": "/vinh-phuc", "id": 59, "title": "vĩnh phúc", "stt": 0, "created": null, "updated": null, "totaldoanhnghiep": 12897 }, { "type": 1, "solrid": "/bac-lieu", "id": 60, "title": "bạc liêu", "stt": 0, "created": null, "updated": null, "totaldoanhnghiep": 5474 }, { "type": 1, "solrid": "/yen-bai", "id": 61, "title": "yên bái", "stt": 0, "created": null, "updated": null, "totaldoanhnghiep": 4883 }, { "type": 1, "solrid": "/dien-bien", "id": 62, "title": "điện biên", "stt": 0, "created": null, "updated": null, "totaldoanhnghiep": 3172 }, { "type": 1, "solrid": "/ha-giang", "id": 63, "title": "hà giang", "stt": 0, "created": null, "updated": null, "totaldoanhnghiep": 4580 },
+    ];
+
+    var option = "";
+    for (var i = 0; i < thanhpho.length; i++) {
+        option += "<option>" + thanhpho[i].title + "</option>";
+    };
+    document.getElementById("thanhpho").innerHTML = option</script>
+
+<script>var huyen = [{ "Type": 3, "SolrID": "/hung-yen/huyen-yen-my/khu-cong-nghiep-pho-noi-a", "ID": 8208, "Title": "Khu Công Nghiệp Phố Nối A", "STT": 0, "TinhThanhID": 2, "TinhThanhTitle": "Hưng Yên", "TinhThanhTitleAscii": "/hung-yen", "QuanHuyenID": 2, "QuanHuyenTitle": "Huyện Yên Mỹ", "QuanHuyenTitleAscii": "/hung-yen/huyen-yen-my", "Created": null, "Updated": null }, { "Type": 3, "SolrID": "/hung-yen/huyen-yen-my/khu-cong-nghiep-pho-noi-b", "ID": 8033, "Title": "Khu Công Nghiệp Phố Nối B", "STT": 0, "TinhThanhID": 2, "TinhThanhTitle": "Hưng Yên", "TinhThanhTitleAscii": "/hung-yen", "QuanHuyenID": 2, "QuanHuyenTitle": "Huyện Yên Mỹ", "QuanHuyenTitleAscii": "/hung-yen/huyen-yen-my", "Created": null, "Updated": null }, { "Type": 3, "SolrID": "/hung-yen/huyen-yen-my/khu-cong-nghiep-det-may-pho-noi-b", "ID": 15032, "Title": "Khu Công Nghiệp Dệt May Phố Nối B", "STT": 0, "TinhThanhID": 2, "TinhThanhTitle": "Hưng Yên", "TinhThanhTitleAscii": "/hung-yen", "QuanHuyenID": 2, "QuanHuyenTitle": "Huyện Yên Mỹ", "QuanHuyenTitleAscii": "/hung-yen/huyen-yen-my", "Created": null, "Updated": null }, { "Type": 3, "SolrID": "/hung-yen/huyen-yen-my/xa-minh-chau", "ID": 3669, "Title": "Xã Minh Châu", "STT": 0, "TinhThanhID": 2, "TinhThanhTitle": "Hưng Yên", "TinhThanhTitleAscii": "/hung-yen", "QuanHuyenID": 2, "QuanHuyenTitle": "Huyện Yên Mỹ", "QuanHuyenTitleAscii": "/hung-yen/huyen-yen-my", "Created": null, "Updated": null }, { "Type": 3, "SolrID": "/hung-yen/huyen-yen-my/xa-minh-chau-huyen-yen-my", "ID": 16593, "Title": "Xã Minh Châu Huyện Yên Mỹ", "STT": 0, "TinhThanhID": 2, "TinhThanhTitle": "Hưng Yên", "TinhThanhTitleAscii": "/hung-yen", "QuanHuyenID": 2, "QuanHuyenTitle": "Huyện Yên Mỹ", "QuanHuyenTitleAscii": "/hung-yen/huyen-yen-my", "Created": null, "Updated": null }, { "Type": 3, "SolrID": "/hung-yen/huyen-yen-my/chua-ro", "ID": 3916, "Title": "Chưa rõ", "STT": 0, "TinhThanhID": 2, "TinhThanhTitle": "Hưng Yên", "TinhThanhTitleAscii": "/hung-yen", "QuanHuyenID": 2, "QuanHuyenTitle": "Huyện Yên Mỹ", "QuanHuyenTitleAscii": "/hung-yen/huyen-yen-my", "Created": null, "Updated": null }, { "Type": 3, "SolrID": "/hung-yen/huyen-yen-my/khu-cong-nghiep-thang-long-ii", "ID": 7060, "Title": "Khu Công Nghiệp Thăng Long II", "STT": 0, "TinhThanhID": 2, "TinhThanhTitle": "Hưng Yên", "TinhThanhTitleAscii": "/hung-yen", "QuanHuyenID": 2, "QuanHuyenTitle": "Huyện Yên Mỹ", "QuanHuyenTitleAscii": "/hung-yen/huyen-yen-my", "Created": null, "Updated": null }, { "Type": 3, "SolrID": "/hung-yen/huyen-yen-my/khu-cong-nghiep-thang-lonh-ii", "ID": 10939, "Title": "Khu Công Nghiệp Thăng Lonh II", "STT": 0, "TinhThanhID": 2, "TinhThanhTitle": "Hưng Yên", "TinhThanhTitleAscii": "/hung-yen", "QuanHuyenID": 2, "QuanHuyenTitle": "Huyện Yên Mỹ", "QuanHuyenTitleAscii": "/hung-yen/huyen-yen-my", "Created": null, "Updated": null }, { "Type": 3, "SolrID": "/hung-yen/huyen-yen-my/xa-viet-cuong", "ID": 11292, "Title": "Xã Việt Cường", "STT": 0, "TinhThanhID": 2, "TinhThanhTitle": "Hưng Yên", "TinhThanhTitleAscii": "/hung-yen", "QuanHuyenID": 2, "QuanHuyenTitle": "Huyện Yên Mỹ", "QuanHuyenTitleAscii": "/hung-yen/huyen-yen-my", "Created": null, "Updated": null }, { "Type": 3, "SolrID": "/hung-yen/huyen-yen-my/xa-dong-than", "ID": 3513, "Title": "Xã Đồng Than", "STT": 0, "TinhThanhID": 2, "TinhThanhTitle": "Hưng Yên", "TinhThanhTitleAscii": "/hung-yen", "QuanHuyenID": 2, "QuanHuyenTitle": "Huyện Yên Mỹ", "QuanHuyenTitleAscii": "/hung-yen/huyen-yen-my", "Created": null, "Updated": null }, { "Type": 3, "SolrID": "/hung-yen/huyen-yen-my/xa-giai-pham", "ID": 2, "Title": "Xã Giai Phạm", "STT": 0, "TinhThanhID": 2, "TinhThanhTitle": "Hưng Yên", "TinhThanhTitleAscii": "/hung-yen", "QuanHuyenID": 2, "QuanHuyenTitle": "Huyện Yên Mỹ", "QuanHuyenTitleAscii": "/hung-yen/huyen-yen-my", "Created": null, "Updated": null }, { "Type": 3, "SolrID": "/hung-yen/huyen-yen-my/xa-nghia-hiep", "ID": 3097, "Title": "Xã Nghĩa Hiệp", "STT": 0, "TinhThanhID": 2, "TinhThanhTitle": "Hưng Yên", "TinhThanhTitleAscii": "/hung-yen", "QuanHuyenID": 2, "QuanHuyenTitle": "Huyện Yên Mỹ", "QuanHuyenTitleAscii": "/hung-yen/huyen-yen-my", "Created": null, "Updated": null }, { "Type": 3, "SolrID": "/hung-yen/huyen-yen-my/xa-trung-hoa", "ID": 1620, "Title": "Xã Trung Hòa", "STT": 0, "TinhThanhID": 2, "TinhThanhTitle": "Hưng Yên", "TinhThanhTitleAscii": "/hung-yen", "QuanHuyenID": 2, "QuanHuyenTitle": "Huyện Yên Mỹ", "QuanHuyenTitleAscii": "/hung-yen/huyen-yen-my", "Created": null, "Updated": null }, { "Type": 3, "SolrID": "/hung-yen/huyen-yen-my/xa-yen-hoa", "ID": 11129, "Title": "Xã Yên Hòa", "STT": 0, "TinhThanhID": 2, "TinhThanhTitle": "Hưng Yên", "TinhThanhTitleAscii": "/hung-yen", "QuanHuyenID": 2, "QuanHuyenTitle": "Huyện Yên Mỹ", "QuanHuyenTitleAscii": "/hung-yen/huyen-yen-my", "Created": null, "Updated": null }, { "Type": 3, "SolrID": "/hung-yen/huyen-yen-my/xa-hoan-long", "ID": 7448, "Title": "Xã Hoàn Long", "STT": 0, "TinhThanhID": 2, "TinhThanhTitle": "Hưng Yên", "TinhThanhTitleAscii": "/hung-yen", "QuanHuyenID": 2, "QuanHuyenTitle": "Huyện Yên Mỹ", "QuanHuyenTitleAscii": "/hung-yen/huyen-yen-my", "Created": null, "Updated": null }, { "Type": 3, "SolrID": "/hung-yen/huyen-yen-my/xa-trung-hung", "ID": 1752, "Title": "Xã Trung Hưng", "STT": 0, "TinhThanhID": 2, "TinhThanhTitle": "Hưng Yên", "TinhThanhTitleAscii": "/hung-yen", "QuanHuyenID": 2, "QuanHuyenTitle": "Huyện Yên Mỹ", "QuanHuyenTitleAscii": "/hung-yen/huyen-yen-my", "Created": null, "Updated": null }, { "Type": 3, "SolrID": "/hung-yen/huyen-yen-my/xa-ly-thuong-kiet", "ID": 2624, "Title": "Xã Lý Thường Kiệt", "STT": 0, "TinhThanhID": 2, "TinhThanhTitle": "Hưng Yên", "TinhThanhTitleAscii": "/hung-yen", "QuanHuyenID": 2, "QuanHuyenTitle": "Huyện Yên Mỹ", "QuanHuyenTitleAscii": "/hung-yen/huyen-yen-my", "Created": null, "Updated": null }, { "Type": 3, "SolrID": "/hung-yen/huyen-yen-my/xa-thuong-kiet", "ID": 16596, "Title": "Xã Thường Kiệt", "STT": 0, "TinhThanhID": 2, "TinhThanhTitle": "Hưng Yên", "TinhThanhTitleAscii": "/hung-yen", "QuanHuyenID": 2, "QuanHuyenTitle": "Huyện Yên Mỹ", "QuanHuyenTitleAscii": "/hung-yen/huyen-yen-my", "Created": null, "Updated": null }, { "Type": 3, "SolrID": "/hung-yen/huyen-yen-my/xa-tan-lap", "ID": 2999, "Title": "Xã Tân Lập", "STT": 0, "TinhThanhID": 2, "TinhThanhTitle": "Hưng Yên", "TinhThanhTitleAscii": "/hung-yen", "QuanHuyenID": 2, "QuanHuyenTitle": "Huyện Yên Mỹ", "QuanHuyenTitleAscii": "/hung-yen/huyen-yen-my", "Created": null, "Updated": null }, { "Type": 3, "SolrID": "/hung-yen/huyen-yen-my/xa-lieu-xa", "ID": 2622, "Title": "Xã Liêu Xá", "STT": 0, "TinhThanhID": 2, "TinhThanhTitle": "Hưng Yên", "TinhThanhTitleAscii": "/hung-yen", "QuanHuyenID": 2, "QuanHuyenTitle": "Huyện Yên Mỹ", "QuanHuyenTitleAscii": "/hung-yen/huyen-yen-my", "Created": null, "Updated": null }, { "Type": 3, "SolrID": "/hung-yen/huyen-yen-my/xa-thanh-long", "ID": 5667, "Title": "Xã Thanh Long", "STT": 0, "TinhThanhID": 2, "TinhThanhTitle": "Hưng Yên", "TinhThanhTitleAscii": "/hung-yen", "QuanHuyenID": 2, "QuanHuyenTitle": "Huyện Yên Mỹ", "QuanHuyenTitleAscii": "/hung-yen/huyen-yen-my", "Created": null, "Updated": null }, { "Type": 3, "SolrID": "/hung-yen/huyen-yen-my/xa-ngoc-long", "ID": 15975, "Title": "Xã Ngọc Long", "STT": 0, "TinhThanhID": 2, "TinhThanhTitle": "Hưng Yên", "TinhThanhTitleAscii": "/hung-yen", "QuanHuyenID": 2, "QuanHuyenTitle": "Huyện Yên Mỹ", "QuanHuyenTitleAscii": "/hung-yen/huyen-yen-my", "Created": null, "Updated": null }, { "Type": 3, "SolrID": "/hung-yen/huyen-yen-my/xa-luu-xa", "ID": 16600, "Title": "Xã Lưu Xá", "STT": 0, "TinhThanhID": 2, "TinhThanhTitle": "Hưng Yên", "TinhThanhTitleAscii": "/hung-yen", "QuanHuyenID": 2, "QuanHuyenTitle": "Huyện Yên Mỹ", "QuanHuyenTitleAscii": "/hung-yen/huyen-yen-my", "Created": null, "Updated": null }, { "Type": 3, "SolrID": "/hung-yen/huyen-yen-my/thi-tran-yen-mi", "ID": 15960, "Title": "Thị Trấn Yên Mĩ", "STT": 0, "TinhThanhID": 2, "TinhThanhTitle": "Hưng Yên", "TinhThanhTitleAscii": "/hung-yen", "QuanHuyenID": 2, "QuanHuyenTitle": "Huyện Yên Mỹ", "QuanHuyenTitleAscii": "/hung-yen/huyen-yen-my", "Created": null, "Updated": null }, { "Type": 3, "SolrID": "/hung-yen/huyen-yen-my/thi-tran-yem-mi", "ID": 16598, "Title": "Thị Trấn Yêm Mĩ", "STT": 0, "TinhThanhID": 2, "TinhThanhTitle": "Hưng Yên", "TinhThanhTitleAscii": "/hung-yen", "QuanHuyenID": 2, "QuanHuyenTitle": "Huyện Yên Mỹ", "QuanHuyenTitleAscii": "/hung-yen/huyen-yen-my", "Created": null, "Updated": null }, { "Type": 3, "SolrID": "/hung-yen/huyen-yen-my/thi-tran-yen-my", "ID": 1619, "Title": "Thị Trấn Yên Mỹ", "STT": 0, "TinhThanhID": 2, "TinhThanhTitle": "Hưng Yên", "TinhThanhTitleAscii": "/hung-yen", "QuanHuyenID": 2, "QuanHuyenTitle": "Huyện Yên Mỹ", "QuanHuyenTitleAscii": "/hung-yen/huyen-yen-my", "Created": null, "Updated": null }, { "Type": 3, "SolrID": "/hung-yen/huyen-yen-my/xa-yen-phu", "ID": 1388, "Title": "Xã Yên Phú", "STT": 0, "TinhThanhID": 2, "TinhThanhTitle": "Hưng Yên", "TinhThanhTitleAscii": "/hung-yen", "QuanHuyenID": 2, "QuanHuyenTitle": "Huyện Yên Mỹ", "QuanHuyenTitleAscii": "/hung-yen/huyen-yen-my", "Created": null, "Updated": null }, { "Type": 3, "SolrID": "/hung-yen/huyen-yen-my/xa-tan-viet", "ID": 1389, "Title": "Xã Tân Việt", "STT": 0, "TinhThanhID": 2, "TinhThanhTitle": "Hưng Yên", "TinhThanhTitleAscii": "/hung-yen", "QuanHuyenID": 2, "QuanHuyenTitle": "Huyện Yên Mỹ", "QuanHuyenTitleAscii": "/hung-yen/huyen-yen-my", "Created": null, "Updated": null }, { "Type": 3, "SolrID": "/hung-yen/huyen-yen-my/xa-trai-trang", "ID": 15958, "Title": "Xã Trai Trang", "STT": 0, "TinhThanhID": 2, "TinhThanhTitle": "Hưng Yên", "TinhThanhTitleAscii": "/hung-yen", "QuanHuyenID": 2, "QuanHuyenTitle": "Huyện Yên Mỹ", "QuanHuyenTitleAscii": "/hung-yen/huyen-yen-my", "Created": null, "Updated": null }, { "Type": 3, "SolrID": "/hung-yen/huyen-yen-my/xa", "ID": 14486, "Title": "Xã", "STT": 0, "TinhThanhID": 2, "TinhThanhTitle": "Hưng Yên", "TinhThanhTitleAscii": "/hung-yen", "QuanHuyenID": 2, "QuanHuyenTitle": "Huyện Yên Mỹ", "QuanHuyenTitleAscii": "/hung-yen/huyen-yen-my", "Created": null, "Updated": null }];
+    for (var f = 0; f < huyen.length; f++) {
+        //console.log(huyen[f].Title)
+    };</script>
+
+
+
+
+
+
+
+
+<@*div class="jumbotron">
     <h1>ASP.NET</h1>
     <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
     <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
@@ -19,4 +620,4 @@
     </div>
     Anh vua upload
     <img src="@ViewBag.Url" alt="Alternate Text" />
-</div>
+</div>*@

@@ -153,11 +153,13 @@ namespace HenhoOnline.Controllers
             if (ModelState.IsValid)
             {
                 var user = new ApplicationUser { UserName = model.Username, Email = model.Email, FullName = model.FullName, BirthDay = model.BirthDay, Address = model.Address, Avatar = model.Avatar, Character = model.Character, Gender = model.Gender };
+                Debug.WriteLine("horo Id: " + user.GetHoroscope(user));
+                if (user.GetHoroscope(user) != null) { user.HoroscopeId = user.GetHoroscope(user); }
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
                     await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
-
+                    await UserManager.AddToRoleAsync(user.Id, "User");
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
@@ -345,7 +347,7 @@ namespace HenhoOnline.Controllers
                     // If the user does not have an account, then prompt the user to create an account
                     ViewBag.ReturnUrl = returnUrl;
                     ViewBag.LoginProvider = loginInfo.Login.LoginProvider;
-                    return View("ExternalLoginConfirmation", new ExternalLoginConfirmationViewModel { Email = loginInfo.Email, FullName = loginInfo.DefaultUserName});
+                    return View("ExternalLoginConfirmation", new ExternalLoginConfirmationViewModel { Email = loginInfo.Email, FullName = loginInfo.DefaultUserName });
             }
         }
 
@@ -369,7 +371,8 @@ namespace HenhoOnline.Controllers
                 {
                     return View("ExternalLoginFailure");
                 }
-                var user = new ApplicationUser {UserName = model.Email, Email = model.Email, FullName = model.FullName, BirthDay = model.BirthDay, Address = model.Address, Avatar = model.Avatar, Character = model.Character, Gender = model.Gender};
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, FullName = model.FullName, BirthDay = model.BirthDay, Address = model.Address, Avatar = model.Avatar, Character = model.Character, Gender = model.Gender };
+                if (user.GetHoroscope(user) != null) { user.HoroscopeId = user.GetHoroscope(user); }
                 var result = await UserManager.CreateAsync(user);
                 if (result.Succeeded)
                 {

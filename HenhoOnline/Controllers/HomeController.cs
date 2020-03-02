@@ -1,16 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using CloudinaryDotNet;
 using CloudinaryDotNet.Actions;
+using HenhoOnline.Models;
+using Microsoft.AspNet.Identity;
+using WebGrease.Css.Ast.Selectors;
 
 namespace HenhoOnline.Controllers
 {
     public class HomeController : Controller
     {
+        private ApplicationDbContext dbContext = new ApplicationDbContext();
         public ActionResult Index()
         {
             return View();
@@ -38,16 +45,22 @@ namespace HenhoOnline.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
-
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
-
             return View();
         }
+        [Authorize]
+        public ActionResult MatchLover()
+        {
+            Debug.WriteLine(User.Identity.GetUserId());
+            var currentUser = dbContext.Users.Find(User.Identity.GetUserId());
+            if (currentUser == null) return HttpNotFound();
+            var listUser = currentUser.GetListUserHoroscopeMatch(currentUser);
+            return View(listUser);
+        }
+
     }
 }

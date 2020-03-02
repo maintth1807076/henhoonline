@@ -45,20 +45,22 @@ namespace HenhoOnline.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
-
             return View();
         }
 
         public ActionResult Contact()
         {
+            return View();
+        }
+        [Authorize]
+        public ActionResult MatchLover()
+        {
             Debug.WriteLine(User.Identity.GetUserId());
             var currentUser = dbContext.Users.Find(User.Identity.GetUserId());
             if (currentUser == null) return HttpNotFound();
             var listUser = currentUser.GetListUserHoroscopeMatch(currentUser);
-
-
             return View(listUser);
         }
+        
     }
 }

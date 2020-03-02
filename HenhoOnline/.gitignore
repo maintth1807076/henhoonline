@@ -7,3 +7,9 @@ packages/
 *.sln
 *.csproj.user
 *.csproj
+HenhoOnline/App_Data/aspnet-HenhoOnline-20200128012856.mdf
+HenhoOnline/App_Data/aspnet-HenhoOnline-20200128012856_log.ldf
+HenhoOnline/HenhoOnline.csproj
+HenhoOnline/HenhoOnline.csproj.user
+HenhoOnline/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+HenhoOnline/obj/Debug/HenhoOnline.csproj.FileListAbsolute.txt

@@ -71,9 +71,21 @@ namespace HenhoOnline.Migrations
 
 
             //    );
-            var manager = new UserManager<ApplicationUser>(
-                new UserStore<ApplicationUser>(
-                    new ApplicationDbContext()));
+            var userManager = new UserManager<ApplicationUser>(
+                new UserStore<ApplicationUser>(context));
+            var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
+            if (!roleManager.RoleExists("Admin"))
+            {
+                var role = new IdentityRole("Admin");
+                roleManager.Create(role);
+
+            }
+            if (!roleManager.RoleExists("User"))
+            {
+                var role = new IdentityRole("User");
+                roleManager.Create(role);
+
+            }
             var listUser = new List<ApplicationUser>()
             {
                 new ApplicationUser(){UserName = "t1", FullName = "Nguyễn Văn Tuấn", BirthDay = DateTime.Parse("1990/03/24"), Avatar = "https://i.pinimg.com/236x/d2/78/99/d2789942421dc67732d6ef92739c859c.jpg", Gender = 1, Character = ApplicationUser.CharacterType.Funny, Address = "khong can dien vao", HoroscopeId = 1},
@@ -136,7 +148,7 @@ namespace HenhoOnline.Migrations
                 new ApplicationUser(){UserName = "t58", FullName = "Nguyễn Hữu Tú", BirthDay = DateTime.Parse("2009/05/09"), Avatar = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4DM8POvKESlP9ivJv1inHqRwaO90O-HEtuMbxMMybhuh4ECEb&s", Gender = 0, Character = ApplicationUser.CharacterType.Funny, Address = "khong can dien vao", HoroscopeId = 20},
                 new ApplicationUser(){UserName = "t59", FullName = "Nguyễn Tuấn Dũng", BirthDay = DateTime.Parse("2009/08/30"), Avatar = "https://lh6.googleusercontent.com/proxy/yqpH8NA2QyOPWxEp5rjW9hmVgr7VDQErUl0lEjVs8t0UTU3Yqvd5I3Iylg2I7-A0n7ezB3a8NXeQrb4fOqcehTON3FhJ1UCITuWQTc-EA1RBbby4320r-2bo45jjqPplTv3EP4ttOtgwvnUm8zmRhx4i7GavIw	", Gender = 1, Character = ApplicationUser.CharacterType.Funny, Address = "khong can dien vao", HoroscopeId = 20},
                 new ApplicationUser(){UserName = "t60", FullName = "Lê Hữu Tú", BirthDay = DateTime.Parse("2009/06/12"), Avatar = "https://2sao.vietnamnetjsc.vn/2015/09/20/16/57/13.jpg", Gender = 0, Character = ApplicationUser.CharacterType.Funny, Address = "khong can dien vao", HoroscopeId = 20},
-                 new ApplicationUser(){UserName ="My", FullName = "Trần Thị My", BirthDay = DateTime.Parse("1990/03/12"), Avatar = "https://cdn.ymeet.me/uploads/avatar/picture/3502849/large_879915_20200120_202733_79.jpg", Gender = 1, Character = ApplicationUser.CharacterType.Funny, Address = "khong can dien vao", HoroscopeId = 21},
+                new ApplicationUser(){UserName ="My", FullName = "Trần Thị My", BirthDay = DateTime.Parse("1990/03/12"), Avatar = "https://cdn.ymeet.me/uploads/avatar/picture/3502849/large_879915_20200120_202733_79.jpg", Gender = 1, Character = ApplicationUser.CharacterType.Funny, Address = "khong can dien vao", HoroscopeId = 21},
                 new ApplicationUser(){UserName = "Phương", FullName = "Đỗ Thu Phương", BirthDay = DateTime.Parse("1990/05/22"), Avatar = "https://cdn.ymeet.me/uploads/avatar/picture/3629304/large_2192334_20200219_145042_91.jpg", Gender = 0, Character = ApplicationUser.CharacterType.Funny, Address = "khong can dien vao", HoroscopeId = 21},
                 new ApplicationUser(){UserName = "Hà", FullName = "Lê Thanh Hà", BirthDay = DateTime.Parse("1990/05/16"), Avatar = "https://cdn.ymeet.me/uploads/avatar/picture/3277142/large_1004063_20191023_131933_35.jpg", Gender = 0, Character = ApplicationUser.CharacterType.Funny, Address = "khong can dien vao", HoroscopeId = 21},
                 new ApplicationUser(){UserName = "Hoài", FullName = "Nguyễn Thị Hoài", BirthDay = DateTime.Parse("1991/06/16"), Avatar = "https://cdn.ymeet.me/uploads/avatar/picture/3164698/large_1908182_20190910_100452_35.jpg", Gender = 0, Character = ApplicationUser.CharacterType.Funny, Address = "khong can dien vao", HoroscopeId = 22},
@@ -199,7 +211,25 @@ namespace HenhoOnline.Migrations
             };
             foreach (var user in listUser)
             {
-                manager.Create(user, "password");
+                var result = userManager.Create(user, "password");
+                if (result.Succeeded)
+                {
+                    var result1 = userManager.AddToRole(user.Id, "User");
+
+                }
+            }
+            if (!context.Users.Any(u => u.UserName == "admin"))
+            {
+                var user = new ApplicationUser
+                {
+                    UserName = "admin",
+                    BirthDay = DateTime.Now,
+
+                    //SecurityStamp = Guid.NewGuid().ToString("D"),
+                    //PasswordHash = userManager.PasswordHasher.HashPassword("secret"),
+                };
+                userManager.Create(user, "password");
+                userManager.AddToRole(user.Id, "Admin");
             }
         }
     }
